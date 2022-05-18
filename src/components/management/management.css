@@ -1,0 +1,222 @@
+.management-section {
+  margin-top: 80px;
+  margin-right: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-section {
+  margin-top: 80px;
+  margin-right: 20px;
+}
+
+.add-action {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px 10px 0px;
+}
+
+.add-action .actions-name {
+  margin: 0px 20px 0px 0px;
+}
+
+.add-action .action-button {
+  background-color: var(--yellow-color);
+  color: var(--white-color);
+  border: 1px solid var(--yellow-color);
+  border-radius: 20px;
+}
+
+.add-action .action-button:hover {
+  background-color: var(--main-background-color);
+  color: var(--yellow-color);
+  border: 1px solid var(--yellow-color);
+  border-radius: 20px;
+}
+
+.btn-tab {
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #000;
+  margin-right: 20px;
+}
+
+.btn-tab-selected {
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  margin-right: 20px;
+  color: gray;
+}
+
+.btn-tab-selected:hover {
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  margin-right: 20px;
+  color: gray;
+}
+
+.btn-tab:hover {
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  margin-right: 20px;
+  color: gray;
+}
+
+.tabs-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.tabs-section .action-button {
+  background-color: #7c992c;
+  padding: 6px 10px 6px 10px;
+  margin-left: 5px;
+  color: #fff;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.action-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.refresh-management-button {
+  background-color: #7c992c;
+  border: 1px solid #7c992c;
+  padding: 7px 9px 7px 9px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.refresh-management-button:hover {
+  background-color: #fff;
+  border: 1px solid #7c992c;
+  padding: 7px 9px 7px 9px;
+  color: #7c992c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.actions-search {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-left: 20px;
+  border-radius: 30px;
+}
+
+.actions-search .input-section {
+  border-radius: 30px;
+  border: none;
+}
+
+.action-section .action-button {
+  background-color: var(--yellow-color);
+  border: 1px solid var(--yellow-color);
+  display: flex;
+  color: #fff;
+  margin-left: 20px;
+  border-radius: 20px;
+}
+
+.action-section .action-button:hover {
+  background-color: var(--yellow-color);
+  border: 1px solid var(--yellow-color);
+  display: flex;
+  color: #fff;
+  margin-left: 20px;
+  border-radius: 20px;
+}
+
+.action-title-modal {
+  background-color: #f82952;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.view-title-modal {
+  background-color: var(--view-color);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.edit-title-modal {
+  background-color: #727cf5;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.close-modal-button {
+  color: var(--white-color);
+  padding: 10px;
+  background-color: gray;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.close-modal-button:hover {
+  color: gray;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.close-modal-icon {
+  color: var(--grey-color);
+  background-color: #fff;
+  border: none;
+}
+
+.close-modal-icon:hover {
+  color: var(--grey-color);
+  background-color: #fff;
+  border: none;
+}
+
+.role-permissions {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.form-check-input:checked {
+  background-color: #0acf97 !important;
+  border-color: #0acf97 !important;
+}
+
+.form-check-input:focus {
+  border-color: none !important;
+}
+
+.btn-user-details{
+  background-color: var(--main-background-color);
+  border: none;
+  border-radius: 5px;
+  margin: 0px 5px 0px 0px;
+  color: var(--grey-color);
+  padding: 0px 10px 0px 10px;
+}
+
+.btn-user-details:hover{
+  background-color: var(--main-background-color);
+  border: none;
+  border-radius: 5px;
+  margin: 0px 5px 0px 0px;
+  color: var(--green-color);
+  padding: 0px 10px 0px 10px;
+}
+

@@ -1,0 +1,84 @@
+.date-picker {
+  display: flex;
+  margin-right: 10px;
+}
+
+.one-date-picker {
+  display: flex;
+}
+
+.datepicker-one-icon-start {
+  background-color: #7c992c;
+  border-radius: 5px 0px 0px 5px;
+  color: white;
+  padding-top: 6.5px;
+  border: 1px solid #7c992c;
+}
+.datepicker-one-icon-start:hover {
+  background-color: #fff;
+  border-radius: 5px 0px 0px 5px;
+  color: #7c992c;
+  padding-top: 6.5px;
+  cursor: pointer;
+  border: 1px solid #7c992c;
+}
+
+.datepicker-icon {
+  background-color: #7c992c;
+  border-radius: 0px 5px 5px 0px;
+  color: white;
+  padding-top: 6.5px;
+  outline: 1rem;
+  border: 1px solid #7c992c;
+}
+
+.datepicker-icon:hover {
+  background-color: #fff;
+  border-radius: 0px 5px 5px 0px;
+  color: #7c992c;
+  padding-top: 6.5px;
+  cursor: pointer;
+  border: 1px solid #7c992c;
+}
+
+.datepicker-icon-start {
+  background-color: #7c992c;
+  border-radius: 5px 0px 0px 5px;
+  color: white;
+  padding-top: 6.5px;
+  outline: 1rem;
+  border: 1px solid #7c992c;
+}
+
+.datepicker-icon-start:hover {
+  background-color: #fff;
+  border-radius: 5px 0px 0px 5px;
+  color: #7c992c;
+  padding-top: 6.5px;
+  cursor: pointer;
+  border: 1px solid #7c992c;
+}
+
+.form-control-date-picker {
+  background-color: #fff;
+  padding: 8px;
+  border: 0.5px solid #ced4da;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.form-control-one-date-picker {
+  background-color: #fff;
+  padding: 8px;
+  border: 0.5px solid #ced4da;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.date-picker-one-icon {
+  margin: 0px 10px 0px 10px;
+}
+
+.range-date-picker {
+  color: #7c992c;
+  margin: 10px;
+  padding: 10px;
+}

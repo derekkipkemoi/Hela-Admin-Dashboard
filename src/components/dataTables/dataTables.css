@@ -1,0 +1,348 @@
+.editicon {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  color: var(--edit-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.editicon:hover {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  background-color: var(--edit-color);
+  color: var(--white-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.pendingicon {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  color: var(--locked-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.pendingicon:hover {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  background-color: var(--locked-color);
+  color: var(--white-color);
+  border-radius: 4px 4px 4px 4px;
+}
+.visibilityicon {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  color: var(--view-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.visibilityicon:hover {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  background-color: var(--view-color);
+  color: var(--white-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.approveicon {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  color: var(--approve-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.approveicon:hover {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  background-color: var(--approve-color);
+  color: var(--white-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.deleteicon {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+  color: var(--decline-color);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.deleteicon:hover {
+  background-color: var(--decline-color);
+  color: var(--white-color);
+}
+
+.confirm-modal-button {
+  border: 1px solid #0acf97;
+  background-color: #0acf97;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+  color: #fff;
+}
+
+.confirm-modal-button:hover {
+  color: #0acf97;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-left: 20px;
+  border: 1px solid #0acf97;
+}
+
+.delete-modal-button {
+  color: var(--white-color);
+  padding: 10px;
+  background-color: var(--decline-color);
+  border-radius: 5px;
+  margin-left: 20px;
+  border: 1px solid var(--decline-color);
+}
+
+.delete-modal-button:hover {
+  color: var(--decline-color);
+  padding: 10px;
+  background-color: var(--white-color);
+  border-radius: 5px;
+  margin-left: 20px;
+  border: 1px solid var(--decline-color);
+}
+
+.pagination-increment {
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border-radius: 20px;
+  margin: 0px 20px 0px 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.current-page-selected {
+  background-color: var(--yellow-color);
+  border-radius: 40px;
+  color: var(--white-color);
+}
+
+.pagination-items-periphery {
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  border-radius: 20px;
+  margin: 0px 10px 0px 10px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.table-dropdown-pagesize-button {
+  background-color: #fff;
+  border: 1px solid var(--gray-color);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 10px 30px 10px 30px;
+}
+
+.table-dropdown-pagesize-text {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  color: var(--gray-color);
+  font-weight: bold;
+}
+
+.card-datatable {
+  background-color: var(--white-color);
+  border-radius: 5px;
+  padding: 10px 10px 5px 10px;
+}
+
+.datatable-footer-data {
+  color: var(--table-color);
+  font-weight: bold;
+}
+
+.data-table-class {
+}
+
+.data-table-head {
+  color: var(--table-color);
+  font-weight: bold;
+}
+
+.data-table-body-row {
+  color: var(--table-color) !important;
+  height: 45px;
+}
+
+.actions-search-datatables {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
+  margin: 5px;
+  border: 1px solid var(--table-color);
+}
+
+.actions-search-datatables .input-section {
+  border-radius: 30px;
+  border: none;
+}
+.actions-top-icons-datatables {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.actions-top-icons-datatables img {
+  width: 100%;
+  height: 100%;
+}
+
+.button-all {
+  background-color: var(--gray-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--white-color);
+  border: 1px solid var(--gray-color);
+}
+
+.button-all:hover {
+  background-color: var(--white-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--gray-color);
+  border: 1px solid var(--gray-color);
+}
+
+.button-new {
+  background-color: var(--edit-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--white-color);
+  border: 1px solid var(--edit-color);
+}
+
+.button-new:hover {
+  background-color: var(--white-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--edit-color);
+  border: 1px solid var(--edit-color);
+}
+
+.button-approved {
+  background-color: var(--approve-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--white-color);
+  border: 1px solid var(--approve-color);
+}
+
+.button-approved:hover {
+  background-color: var(--white-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--approve-color);
+  border: 1px solid var(--approve-color);
+}
+
+.button-declined {
+  background-color: var(--decline-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--white-color);
+  border: 1px solid var(--decline-color);
+}
+
+.button-declined:hover {
+  background-color: var(--white-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--decline-color);
+  border: 1px solid var(--decline-color);
+}
+
+.button-locked {
+  background-color: var(--locked-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--white-color);
+  border: 1px solid var(--locked-color);
+}
+
+.button-locked:hover {
+  background-color: var(--white-color);
+  padding: 8px 15px 8px 15px;
+  border-radius: 30px;
+  margin: 5px 5px 5px 5px;
+  color: var(--locked-color);
+  border: 1px solid var(--locked-color);
+}
+
+.delete-message-modal-title {
+  background-color: var(--decline-color);
+  color: var(--white-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.approve-message-modal-title {
+  background-color: var(--approve-color);
+  color: var(--white-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.locked-color-modal-title {
+  background-color: var(--locked-color);
+  color: var(--white-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.user-table-status-active {
+  color: var(--approve-color);
+}
+
+.user-table-status-pending {
+  color: var(--edit-color);
+}
+
+.user-table-status-declined {
+  color: var(--decline-color);
+}
+.user-table-status-locked {
+  color: var(--locked-color);
+}

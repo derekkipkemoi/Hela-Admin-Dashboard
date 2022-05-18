@@ -1,0 +1,33 @@
+
+
+
+
+.nav-link-item-shorten {
+  display: none;
+  visibility: hidden;
+  font-size: smaller;
+}
+
+.nav-link-item {
+  display: block;
+  max-height: 799px;
+  white-space: normal;
+  visibility: visible;
+  color: #8391a2;
+  transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  padding-left: 40px;
+}
+
+.nav-link-item:hover {
+  display: block;
+  visibility: visible;
+  height: auto;
+  transition: 0.5s;
+  margin: 0px;
+  padding: 0; /* to make the div center align to the browser */
+  padding-left: 40px;
+}
+
+.sub-link-arrow{
+  color: var(--white-color);
+}

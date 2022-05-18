@@ -1,0 +1,30 @@
+.profile-div {
+    margin-top: 0px;
+}
+
+.card-img-top {
+    margin-top: -1px;
+    margin-left: -1px;
+    margin-right: -1px;
+    width: calc(100% + 2px);
+   }
+
+.btn-modal{
+    background-color: #7c992c;
+    border: 1px solid #7c992c;
+    color: #fff;
+    margin-right: 5px;
+    
+}
+
+.btn-modal-current{
+    background-color: #f2f5f9;
+    color: #7c992c;
+    margin-right: 5px;
+}
+
+.button-tabs{
+    display: flex;
+}
+
+

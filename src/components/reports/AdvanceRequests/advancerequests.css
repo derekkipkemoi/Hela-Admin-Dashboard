@@ -1,0 +1,158 @@
+.advance-requests-holder {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: var(--white-color);
+}
+
+.all-advance-requests-holder {
+    padding: 20px;
+    background-color: var(--white-color);
+  }
+
+.requests-holder-button{
+    margin: 10px 2px 2px 0px;
+    width: auto;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    padding: 5px 15px 5px 15px;
+    border: 1px solid var(--gray-color);
+    color: var(--gray-color);
+}
+
+.requests-holder-button:hover{
+    /* background-color: var(--yellow-shade);
+    color: var(--green-color); */
+    border: 1px solid var(--white-color);
+}
+
+.holder-button{
+    width: 20% !important;
+}
+
+.advance-requests-selector{
+  color: var(--green-color);
+  padding: 10px 0px 10px 10px;
+  cursor: pointer;
+}
+
+.advance-requests-selector:hover{
+  color: var(--green-color);
+  padding: 10px 0px 10px 10px;
+  background-color: var(--green-color);
+  color: var(--white-color);
+}
+
+.custom-date-selector{
+  color: var(--green-color);
+  margin: 10px 0px 0px 0px;
+}
+
+.custom-date-selector-header{
+  margin: 0px 0px 0px 10px;
+}
+
+.reports-date-picker{
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+.reports-past-request-form{
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
+.reports-query-button{
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border: 1px solid var(--green-color);
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+}
+
+.reports-query-button:hover{
+  background-color: var(--white-color);
+  color: var(--green-color);
+  border: 1px solid var(--green-color);
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+}
+
+.all-reports-query-button{
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border: 1px solid var(--green-color);
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+}
+.all-reports-query-button:hover{
+  background-color: var(--white-color);
+  color: var(--green-color);
+  border: 1px solid var(--green-color);
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
+.search-reports-query-button{
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border: 1px solid var(--green-color);
+  border-radius: 0px 7px 7px 0px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.search-reports-query-button:hover{
+  background-color: var(--white-color);
+  color: var(--green-color);
+  border-radius: 0px 7px 7px 0px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+}
+
+.requests-holder-button-value{
+  background-color: var(--green-color);
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  padding: 0px 5px 0px 5px;
+  color: var(--white-color);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.input-requests-search{
+  padding: 5px 10px 5px 10px;
+  border-radius: 7px 0px 0px 7px;
+  border: 1px solid var(--gray-color);
+}
+
+.refresh-reports-query-button{
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border: 1px solid var(--green-color);
+  border-radius: 7px 7px 7px 7px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.refresh-reports-query-button:hover{
+  background-color: var(--white-color);
+  color: var(--green-color);
+  border-radius: 7px 7px 7px 7px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+}
+
+.header-reports-holder{
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  width: auto;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,72 @@
+.card-icon {
+    background-color: #D8E0C0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    color: #7c992c;
+}
+
+.featured-Buttons{
+    display: flex;
+}
+
+.refresh-button{
+    background-color: #7c992c;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #7c992c;
+    padding: 0px 10px 0px 10px;
+}
+
+.refresh-button:hover{
+    background-color: #fff;
+    color: #7c992c;
+    border-radius: 5px;
+    border:1px solid #7c992c;
+    padding: 0px 10px 0px 10px;
+    cursor: pointer;
+}
+
+.change-chart-button{
+    background-color: #7c992c;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #7c992c;
+    padding: 0px 10px 0px 10px;
+    margin-right: 10px;
+}
+
+.change-chart-button:hover{
+    background-color: #fff;
+    color: #7c992c;
+    border-radius: 5px;
+    border:1px solid #7c992c;
+    padding: 0px 10px 0px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.data-charts-card{
+    background-color: #fff;
+    margin: 10px 20px 0 10px;
+}
+
+.chart-header{
+    position: relative;
+    display: flex;
+    justify-content: start;
+}
+
+.chart-header-name{
+    position: relative;
+}
+
+.change-chart-button-diabled{
+    background-color: #fff;
+    color: #7c992c;
+    border-radius: 5px;
+    border:1px solid #7c992c;
+    padding: 0px 10px 0px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
