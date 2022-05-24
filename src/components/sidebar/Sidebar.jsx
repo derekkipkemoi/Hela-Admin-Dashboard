@@ -16,6 +16,7 @@ import {
   AlignVerticalTop,
   ArrowDropDown,
   ArrowRightAlt,
+  KeyboardArrowDown,
 } from "@mui/icons-material";
 
 const navLinks = [
@@ -27,18 +28,25 @@ const navLinks = [
   },
   {
     linkName: "Messages",
-    to: "/messages",
     linkIcon: <Forum />,
     subLink: [
       {
+        linkName: "All Message",
+        to: "/messages",
+      },
+      {
         linkName: "New Message",
         to: "/messages/newmessage",
+      },
+
+      {
+        linkName: "Tabled Messages",
+        to: "/messages/tabledmessages",
       },
     ],
   },
   {
     linkName: "Reports",
-    to: "/advancerequests",
     linkIcon: <Assessment />,
     subLink: [
       {
@@ -208,13 +216,12 @@ const navLinks = [
 
 class SideBar extends Component {
   state = {
+    currentSelectedIndexState: false,
     currentSelectedIndex: -1,
     links: [],
   };
 
   componentDidMount = () => {
-    console.log("Did it mount", this.props.history.location.pathname);
-
     if (this.props.history.location.pathname === "/") {
       const navLinkElement = document.getElementById("Home");
       navLinkElement.classList.toggle("active");
@@ -226,7 +233,7 @@ class SideBar extends Component {
     }
 
     if (this.props.history.location.pathname === "/rolespermissions") {
-      const navLinkElement = document.getElementById("Roles and Permissions");
+      const navLinkElement = document.getElementById("Management");
       navLinkElement.classList.toggle("active");
     }
 
@@ -237,26 +244,51 @@ class SideBar extends Component {
   };
 
   navItemClicked = (index) => {
-    const selectedElement = document.getElementById(
-      this.state.currentSelectedIndex
-    );
-    if (selectedElement) {
-      selectedElement.classList.remove("nav-link-item");
-    }
+    const newElement = document.getElementById(index);
+    newElement.classList.toggle("nav-link-item");
+  };
 
-    navLinks.forEach((link) => {
+  navItemHomeClicked = (index) => {
+    navLinks.forEach((link, index1) => {
       const navLinkElement = document.getElementById(link.linkName);
       navLinkElement.classList.remove("active");
+      link.subLink.forEach((subLink, index2) => {
+        const navLinkElement2 = document.getElementById("" + index1 + index2);
+        navLinkElement2.classList.remove("active");
+      });
     });
-    const navLinkElement = document.getElementById(navLinks[index].linkName);
+
+    const navLinkElement1 = document.getElementById(navLinks[index].linkName);
+    navLinkElement1.classList.toggle("active");
+  };
+
+  navItemClick = (navIndex, navSubLinkIndex) => {
+    navLinks.forEach((link, index1) => {
+      const navLinkElement = document.getElementById(link.linkName);
+      navLinkElement.classList.remove("active");
+      link.subLink.forEach((subLink, index2) => {
+        const navLinkElement2 = document.getElementById("" + index1 + index2);
+        navLinkElement2.classList.remove("active");
+      });
+    });
+
+    const navLinkElement = document.getElementById(navLinks[navIndex].linkName);
     navLinkElement.classList.toggle("active");
+
+    const navLinkElement1 = document.getElementById(
+      "" + navIndex + navSubLinkIndex
+    );
+    navLinkElement1.classList.toggle("active");
+
+    this.setState({
+      currentSelectedIndex: navIndex,
+    });
   };
 
   expandMenu = (index) => {
     const newElement = document.getElementById(index);
-    if (newElement) {
-      newElement.classList.toggle("nav-link-item");
-    }
+    newElement.classList.toggle("nav-link-item");
+
     this.setState({
       currentSelectedIndex: index,
     });
@@ -267,52 +299,65 @@ class SideBar extends Component {
     return (
       <div>
         <div className="l-navbar" id="nav-bar">
-          
           <nav className="nav">
-          <div>
-          <Link to={"/"} className="nav_logo"> <img src={require("../assets/images/logo2.jpg")} alt="" /></Link>
-            <div className="nav_list">
-              {links.map((nav, index) => {
-                return (
-                  <div id={nav.linkName}>
-                    <Link
-                      to={nav.to}
-                      className="flex-row d-flex nav_link"
-                      key={index}
-                      onClick={(e) => this.navItemClicked(index)}
-                    >
-                      <span className="nav-item-icon fw-bold">
-                        {nav.linkIcon}
-                      </span>
-                      <span className="nav_name fw-bold ">{nav.linkName}</span>
-                      {nav.subLink.length > 0 ? (
-                        <span
-                          onClick={(e) => this.expandMenu(index)}
-                          className="nav_carret ms-auto"
+            <div>
+              
+              <div className="nav_list">
+                {links.map((nav, index) => {
+                  return (
+                    <div>
+                      <div className="d-flex">
+                        <Link
+                          id={nav.linkName}
+                          to={nav.linkName === "Home" ? nav.to : null}
+                          className="flex-row d-flex nav_link"
+                          key={index}
+                          onClick={
+                            nav.linkName === "Home"
+                              ? (e) => this.navItemHomeClicked(index)
+                              : (e) => this.navItemClicked(index)
+                          }
                         >
-                          <ArrowDropDown />
-                        </span>
-                      ) : null}
-                    </Link>
-                    <div className="nav-sub-link" id={index}>
-                      <ul>
-                        {nav.subLink.map((subnav, index) => (
-                          <Link
-                            to={subnav.to}
-                            className={index > 0 ? "mt-4" : null}
-                            id={subnav.linkName}
+                          <span className="nav-item-icon fw-bold">
+                            {nav.linkIcon}
+                          </span>
+                          <span className="nav_name">{nav.linkName}</span>
+                        </Link>
+                        {nav.subLink.length > 0 ? (
+                          <span
+                            onClick={(e) => this.expandMenu(index)}
+                            className="nav_carret ms-auto mt-3 text-light"
                           >
-                            <li className="fw-bold">
-                              <ArrowRightAlt className="sub-link-arrow"/> {subnav.linkName}
-                            </li>
-                          </Link>
-                        ))}
-                      </ul>
+                            <KeyboardArrowDown />
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="nav-sub-link" id={index}>
+                        <ul>
+                          {nav.subLink.map((subnav, index1) => (
+                            <Link
+                              to={subnav.to}
+                              className={index > 0 ? "mt-4" : null}
+                              onClick={(e) => this.navItemClick(index, index1)}
+                            >
+                              <div className="active-sublink-name">
+                                <li id={"" + index + index1}>
+                                  <div className="d-flex">
+                                    <ArrowRightAlt className="sub-link-arrow" />
+                                    <div className="sub-link-name">
+                                      {subnav.linkName}
+                                    </div>
+                                  </div>
+                                </li>
+                              </div>
+                            </Link>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
             </div>
 
             <a href="#" className="nav_link">

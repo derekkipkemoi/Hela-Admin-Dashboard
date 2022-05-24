@@ -1,21 +1,55 @@
 import { ArrowBack, Star } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../../actions";
 import "../management.css";
 
-const { faker } = require("@faker-js/faker");
-let rolePermissions = [];
-function createData(rolePermission) {
-  return { rolePermission };
-}
 
-for (let r = 0; r < 200; r++) {
-  rolePermissions[r] = createData(faker.lorem.sentence(1));
-}
 
 class ViewRole extends Component {
-  state = {};
+  state = {
+    roleName: this.props.location.state.role,
+    roleDescription: this.props.location.state.description,
+  };
+
+  componentDidMount = () => {
+    this.setState({
+      roleName: this.props.location.state.role,
+      roleDescription: this.props.location.state.description,
+    });
+    this.getRoleDetails();
+  };
+
+  getRoleDetails = async () => {
+    await this.props.getRoleDetails(this.state.roleName);
+  };
   render() {
+    let assignedPermissions = Object.entries(this.props.assigned_permissions);
+    let permissionsNames = [];
+    let permissionsDescriptions = [];
+    for (
+      let assign_permission = 0;
+      assign_permission < assignedPermissions.length;
+      assign_permission++
+    ) {
+      // let permission = Object.entries(assignedPermissions[assign_permission]);
+      // console.log("Hallo", assignedPermissions[assign_permission][1]);
+
+      permissionsNames.push(assignedPermissions[assign_permission][0]);
+      const output = Object.entries(
+        assignedPermissions[assign_permission][1]
+      ).map(([key, value]) => ({
+        key,
+        value,
+      }));
+      permissionsDescriptions.push(output);
+    }
+
+    console.log("Names", assignedPermissions);
+    console.log("Names", permissionsNames);
+    console.log("Description", permissionsDescriptions);
+
     return (
       <div className="row add-section">
         <div className="fw-bold">Management</div>
@@ -45,26 +79,45 @@ class ViewRole extends Component {
                   type="text"
                   className="form-control"
                   placeholder="Type role name"
+                  value={this.state.roleName}
                 />
               </div>
               <div className="col-sm-12 col-md-6 col-xl-6 mb-3">
-                <label className="form-label">
-                  Role Permissions{" "}
-                  <Star className="text-danger" style={{ fontSize: "12px" }} />
-                </label>
+                <label className="form-label">Role Description </label>
                 <textarea
                   className="form-control"
-                  placeholder="Type role description"
+                  placeholder="Does not have role description"
                   rows="3"
+                  value={this.state.roleDescription}
                 ></textarea>
               </div>
-            </div>
-            <div className="row">
-              <div class="col-sm-12 col-md-6 col-xl-6 mb-3">
-                <label class="form-label">
-                  Role Permissions{" "}
-                  <Star className="text-danger" style={{ fontSize: "12px" }} />
-                </label>
+
+              <div class="container">
+                <text>Role Permissions</text>
+                <hr />
+                {assignedPermissions.map((permission, index) => {
+                  return (
+                    <div className="mt-3">
+                      <text className="fw-bold permission-header">
+                        {permissionsNames[index]}
+                      </text>
+                      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
+                        {permissionsDescriptions[index].map(
+                          (permissionDescription, index1) => {
+                            return (
+                              <div class="col">
+                                <div class="p-3 border mt-0 permission-description">
+                                  {permissionDescription.value}
+                                </div>
+                              </div>
+                            );
+                          }
+                        )}
+                      </div>
+                      <hr className="fw-bold"></hr>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -74,4 +127,12 @@ class ViewRole extends Component {
   }
 }
 
-export default ViewRole;
+function mapStateToProps(state) {
+  return {
+    role: state.userRolesAndPermissions.role,
+    assigned_permissions: state.userRolesAndPermissions.assigned_permissions,
+    message: state.userRolesAndPermissions.message,
+  };
+}
+
+export default withRouter(connect(mapStateToProps, actions)(ViewRole));

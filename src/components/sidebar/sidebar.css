@@ -15,7 +15,6 @@
   visibility: visible;
   color: #8391a2;
   transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-  padding-left: 40px;
 }
 
 .nav-link-item:hover {
@@ -25,9 +24,62 @@
   transition: 0.5s;
   margin: 0px;
   padding: 0; /* to make the div center align to the browser */
-  padding-left: 40px;
+}
+
+.active {
+  color: var(--green-color);
+}
+
+.nav_list {
+  margin-top: 20px;
+}
+
+.active a {
+  color: var(--green-color);
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2.5px;
+  height: 32px;
+  background-color: var(--green-color);
 }
 
 .sub-link-arrow{
+  /* color: var(--white-color); */
+}
+
+.sub-link-name{
+  margin-left: 10px;
+  /* color: var(--white-color); */
+}
+
+.active-sublink .sub-link-arrow .sub-link-name{
+  color: var(--green-color);
+}
+
+.active-sublink-name{
   color: var(--white-color);
 }
+
+
+.navs {
+  width: 250px;
+  height: 150px;
+  background: #eee;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.navs.show {
+  background: red;
+  color: white;
+}
+
+.nav_name{
+  font-weight: bold;
+  font-size: small;
+}
+

@@ -1,8 +1,4 @@
 import {
-  ArrowBackIos,
-  Cancel,
-  Delete,
-  Edit,
   NavigateBefore,
   NavigateNext,
   Search,
@@ -12,8 +8,12 @@ import {
 } from "@mui/icons-material";
 import React, { Component } from "react";
 import _ from "lodash";
+
 import ReactTooltip from "react-tooltip";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import * as actions from "../../actions";
 
 import "./dataTables.css";
 
@@ -31,22 +31,20 @@ const columns = [
   },
 ];
 
-let dataData = [];
-
 function createData(roleName, roleDescription) {
   return { roleName, roleDescription };
 }
 
-for (let r = 0; r < 40; r++) {
-  dataData[r] = createData(faker.name.jobTitle(), faker.lorem.lines(1));
-}
+// for (let r = 0; r < 40; r++) {
+//   this.props.roles[r] = createData(faker.name.jobTitle(), faker.lorem.lines(1));
+// }
 
 class RolesDataTable extends Component {
   state = {
-    data: dataData,
+    data: this.props.roles,
     selectedPage: 1,
     pageSize: 10,
-    data: dataData,
+    data: this.props.roles,
     columns: columns,
     pageCount: 0,
     initialItemInPage: 1,
@@ -55,14 +53,21 @@ class RolesDataTable extends Component {
   };
 
   componentDidMount = () => {
+    this.getRoles();
     this.setState({
+      data: this.props.roles,
       pageCount: Math.ceil(this.state.data.length / this.state.pageSize),
       totalSizeInPage: this.state.pageSize,
     });
   };
 
+  getRoles = async () => {
+    await this.props.getRoles();
+    console.log("Roles", this.props.roles);
+  };
+
   filterMessages(inputValue) {
-    const data = dataData;
+    const data = this.props.roles;
     const filtered = data.filter(
       (item) =>
         item.message.includes(inputValue) ||
@@ -81,14 +86,14 @@ class RolesDataTable extends Component {
 
     if (inputValue.length <= 0) {
       this.setState({
-        data: dataData,
+        data: this.props.roles,
       });
     }
   };
 
   changePage = (page) => {
     let startIndex = (page - 1) * this.state.pageSize;
-    let slicedData = dataData.slice(startIndex);
+    let slicedData = this.props.roles.slice(startIndex);
     if (page === 1) {
       this.setState({
         selectedPage: page,
@@ -111,9 +116,9 @@ class RolesDataTable extends Component {
   changePageSize = (value) => {
     if (value !== "all") {
       this.setState({
-        data: dataData,
+        data: this.props.roles,
         pageSize: value,
-        pageCount: Math.ceil(dataData.length / value),
+        pageCount: Math.ceil(this.props.roles.length / value),
         totalSizeInPage: value,
         selectedPage: 1,
         initialItemInPage: 1,
@@ -121,10 +126,10 @@ class RolesDataTable extends Component {
     }
     if (value === "all") {
       this.setState({
-        data: dataData,
-        pageSize: dataData.length,
-        pageCount: Math.ceil(dataData.length / dataData.length),
-        totalSizeInPage: dataData.length,
+        data: this.props.roles,
+        pageSize: this.props.roles.length,
+        pageCount: Math.ceil(this.props.roles.length / this.props.roles.length),
+        totalSizeInPage: this.props.roles.length,
         selectedPage: 1,
         initialItemInPage: 1,
       });
@@ -137,7 +142,7 @@ class RolesDataTable extends Component {
     let startIndex = (page - 1) * this.state.pageSize;
     this.setState({
       selectedPage: this.state.selectedPage - 1,
-      data: dataData.slice(startIndex),
+      data: this.props.roles.slice(startIndex),
       initialItemInPage: this.state.initialItemInPage - this.state.pageSize,
       totalSizeInPage: this.state.totalSizeInPage - this.state.pageSize,
     });
@@ -152,7 +157,7 @@ class RolesDataTable extends Component {
     let startIndex = (page - 1) * this.state.pageSize;
     this.setState({
       selectedPage: this.state.selectedPage + 1,
-      data: dataData.slice(startIndex),
+      data: this.props.roles.slice(startIndex),
       initialItemInPage: this.state.initialItemInPage + this.state.pageSize,
       totalSizeInPage: this.state.totalSizeInPage + this.state.pageSize,
     });
@@ -166,6 +171,7 @@ class RolesDataTable extends Component {
   };
 
   render() {
+    let data = this.state.data
     return (
       <div className="card-datatable mt-2">
         <div className="d-flex justify-content-between mt-2 mb-3">
@@ -181,7 +187,7 @@ class RolesDataTable extends Component {
             </div>
           </div>
           <div className="col d-flex justify-content-end col-md-3 col-xl-3">
-          <div className="actions-top-icons-datatables">
+            <div className="actions-top-icons-datatables">
               <img
                 data-tip
                 data-for="generateWORD"
@@ -248,20 +254,26 @@ class RolesDataTable extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data
+            {data
               .slice(0, this.state.pageSize)
               .map((dataItem, index) => {
                 return (
                   <tr className="data-table-body-row">
-                    <td>{dataItem.roleName} </td>
-                    <td>{dataItem.roleDescription}</td>
+                    <td>{dataItem.name} </td>
+                    <td>{dataItem.description}</td>
 
                     <td style={{ width: "120px" }}>
                       <Link
                         data-tip
                         data-for="viewRole"
                         className="visibilityicon"
-                        to={"/rolespermissions/viewrole"}
+                        to={{
+                          pathname: "/rolespermissions/viewrole",
+                          state: {
+                            role: dataItem.name,
+                            description: dataItem.description,
+                          },
+                        }}
                       >
                         <Visibility />
                       </Link>
@@ -342,10 +354,10 @@ class RolesDataTable extends Component {
             </div>
             <div className="datatable-footer-data">
               Showing {this.state.initialItemInPage} -{" "}
-              {this.state.totalSizeInPage > dataData.length
-                ? dataData.length
+              {this.state.totalSizeInPage > this.props.roles.length
+                ? this.props.roles.length
                 : this.state.totalSizeInPage}{" "}
-              of {dataData.length}
+              of {this.props.roles.length}
             </div>
             <div>
               <ul className="pagination d-flex m-0">
@@ -390,4 +402,11 @@ class RolesDataTable extends Component {
   }
 }
 
-export default RolesDataTable;
+function mapStateToProps(state) {
+  return {
+    roles: state.userRolesAndPermissions.roles,
+    message: state.userRolesAndPermissions.message,
+  };
+}
+
+export default connect(mapStateToProps, actions)(RolesDataTable);

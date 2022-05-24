@@ -1,4 +1,4 @@
-import { React, Component, useEffect } from "react";
+import { React, Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -7,14 +7,9 @@ import * as actions from "../../actions";
 import {
   Menu,
   Logout,
-  Settings,
   AccountCircle,
-  Person,
-  Login,
   NotificationsNone,
-  CircleNotifications,
   ManageAccounts,
-  HailOutlined,
   Search,
 } from "@mui/icons-material";
 
@@ -24,7 +19,6 @@ class Topbar extends Component {
   componentDidMount = () => {};
 
   UserImageClicked = () => {
-    console.log("HailOutlined");
     const profileCard = document.getElementById("card-profile");
 
     profileCard.classList.toggle("card-profile-removed");
@@ -42,34 +36,39 @@ class Topbar extends Component {
     }
   };
 
-  logOut() {
+  logOut = () => {
     this.props.LogOut();
     if (!this.props.isAuthenticated) {
       this.props.history.push("/signin");
     }
-  }
+  };
   render() {
     return (
-      <header class="header" id="header">
-        <div
-          class="bx header_toggle text-dark"
-          id="header_toggle"
-          onClick={this.showNavbar}
-        >
-          <Menu />
+      <header className="header" id="header">
+        <div className="d-flex align-items-center">
+          <Link to={"/"} className="nav_logo">
+            <img src={require("../assets/images/logo2.jpg")} alt="" />
+          </Link>
+          <div
+            className="header_toggle text-dark"
+            id="header_toggle"
+            onClick={this.showNavbar}
+          >
+            <Menu />
+          </div>
         </div>
 
         <div className="col col-md-3 col-xl-3">
-            <div className="actions-search-datatables">
-              <Search className="ms-2" />
-              <input
-                type="text"
-                className="input-section form-control shadow-none"
-                onChange={this.onSearchMessages}
-                placeholder="Search"
-              />
-            </div>
+          <div className="actions-search-datatables">
+            <Search className="ms-2" />
+            <input
+              type="text"
+              className="input-section form-control shadow-none"
+              onChange={this.onSearchMessages}
+              placeholder="Search"
+            />
           </div>
+        </div>
         <div className="header-icons">
           <NotificationsNone />
         </div>
@@ -85,9 +84,12 @@ class Topbar extends Component {
             <Link class="ps-3 pt-2 text-dark" to={"/settings"}>
               <ManageAccounts /> Settings
             </Link>
-            <Link class="ps-3 pt-2 pb-3 text-danger">
+            <div
+              class="ps-3 pt-2 pb-3 text-danger header-link"
+              onClick={this.logOut}
+            >
               <Logout /> Logout
-            </Link>
+            </div>
           </div>
         </div>
       </header>

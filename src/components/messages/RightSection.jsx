@@ -25,23 +25,9 @@ class RightSection extends Component {
     });
 
     return (
-      <div className="main-chat-section">
+      <div>
         {this.state.senderId > 0 ? (
           <div>
-            {/* <div className="current-user-section">
-              {messagesFilteredBySenderid[0] !== undefined ? (
-                <span>
-                  <img
-                    src={messagesFilteredBySenderid[0].senderImage}
-                    alt=""
-                    className="chat-section-current-user-section-image"
-                  />
-                  <small className="ms-2 fs-5 fw-bold">
-                    {messagesFilteredBySenderid[0].sender}
-                  </small>
-                </span>
-              ) : null}
-            </div> */}
             <div className="chat-section">
               {messagesFilteredBySenderid.map((messageItem, index) => {
                 return (
@@ -59,11 +45,6 @@ class RightSection extends Component {
                       <div className="card-body-message-right">
                         {messageItem.message}
                       </div>
-                      {/* <div className="card-title  d-flex justify-content-end">
-                      <small className="chat-card-date">
-                        {messageItem.sentTime}
-                      </small>
-                    </div> */}
                     </div>
                   </div>
                 );

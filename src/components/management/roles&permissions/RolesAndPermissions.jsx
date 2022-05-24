@@ -18,15 +18,12 @@ class RolesAndPermissions extends Component {
     this.setState({
       showRoles: false,
     });
-
-    console.log("Show role", this.state.showRoles);
   };
 
   showRoles = () => {
     this.setState({
       showRoles: true,
     });
-    console.log("Show role", this.state.showRoles);
   };
 
   render() {
@@ -62,7 +59,7 @@ class RolesAndPermissions extends Component {
         <div className="col tabs-section">
           <div
             className={
-              this.state.showRoles ? "btn btn-tab-selected" : "btn btn-tab"
+              this.state.showRoles ? "btn-tab-selected" : "btn-tab"
             }
             onClick={this.showRoles}
           >
@@ -70,7 +67,7 @@ class RolesAndPermissions extends Component {
           </div>
           <div
             className={
-              this.state.showRoles ? "btn btn-tab" : "btn btn-tab-selected"
+              this.state.showRoles ? "btn-tab" : "btn-tab-selected"
             }
             onClick={this.showPermissions}
           >

@@ -47,7 +47,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
   background-color: var(--white-color);
   z-index: var(--z-fixed);
   transition: 0.5s;
@@ -56,7 +55,9 @@
 .header_toggle {
   color: var(--first-color);
   font-size: 1.5rem;
+  transition: 0.5s;
   cursor: pointer;
+  margin-left: 2rem;
 }
 
 .header_img {
@@ -71,6 +72,10 @@
 
 .header_img img {
   width: 40px;
+}
+
+.header-link{
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -111,7 +116,7 @@
   }
 
   .header {
-    height: calc(var(--header-height) + 1rem);
-    padding: 0 2rem 0 calc(var(--nav-width) + 3rem);
+    height: calc(var(--header-height));
+    padding: 0 2rem 0 0;
   }
 }

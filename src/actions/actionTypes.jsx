@@ -1,3 +1,7 @@
 export const AUTH_SIGNIN = "AUTH_SIGNIN"
 export const AUTH_ERROR = "AUTH_ERROR"
 export const LOG_OUT = "LOG_OUT"
+export const USER_ROLES = "USER_ROLES"
+export const ROLES = "ROLES"
+export const ROLE_DETAILS = "ROLE_DETAILS"
+export const PERMISSION_DETAILS = "PERMISSION_DETAILS"

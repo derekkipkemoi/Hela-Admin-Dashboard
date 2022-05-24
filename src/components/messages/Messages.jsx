@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link, withRouter } from "react-router-dom";
 import "./messages.css";
 import LeftSectionMessageCard from "./LeftSectionMessageCard";
 import RightSection from "./RightSection";
@@ -44,7 +44,7 @@ class Messages extends Component {
         <TopMessagingIcons/>
 
         <div className="col tabs-section">
-          <div
+          {/* <div
             className={
               this.state.showChat ? "btn btn-tab-selected" : "btn btn-tab"
             }
@@ -59,7 +59,7 @@ class Messages extends Component {
             onClick={this.showMessagingTables}
           >
             More
-          </div>
+          </div> */}
 
           <div className="refresh-management-button">
             <Refresh />
@@ -67,10 +67,10 @@ class Messages extends Component {
         </div>
         </div>
         
-        {this.state.showChat ? 
+        {this.props.location.pathname === "/messages" ? 
         <div class="row mt-2">
-        <div class="col-sm-12 col-md-5 col-xl-3 col-xxl-3 ">
-          <div class="card card-cover">
+        <div class="col-sm-12 col-md-6 col-xl-3 col-xxl-3 ">
+          <div>
             <div className="message-left-section">
               <LeftSectionMessageCard
                 sendMessageCardEvent={this.receiveMessageCardEvent}
@@ -79,23 +79,23 @@ class Messages extends Component {
           </div>
         </div>
 
-        <div class="col-sm-12 col-md-4 col-xl-6 col-xxl-6">
-          <div class="card card-cover">
+        <div class="col-sm-12 col-md-6 col-xl-6 col-xxl-6">
+          <div>
             <div className="message-right-section">
               <RightSection getSenderId={this.state.senderId} />
             </div>
           </div>
         </div>
 
-        <div class="col-sm-12 col-md-3 col-xl-3 col-xxl-3 ">
-          <div class="card card-cover">
+        <div class="messaging-user-details-section col-sm-12 col-md-12 col-xl-3 col-xxl-3 ">
+         
             <CurrentUser getSenderId={this.state.senderId} />
-          </div>
+          
         </div>
       </div>
         : null}
 
-        {!this.state.showChat ? 
+        {this.props.location.pathname === "/messages/tabledmessages" ? 
         <MessagesDataTables/>
         : null}
         
@@ -104,4 +104,4 @@ class Messages extends Component {
   }
 }
 
-export default Messages;
+export default withRouter(Messages);

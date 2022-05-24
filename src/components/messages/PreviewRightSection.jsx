@@ -10,9 +10,9 @@ class PreviewRightSection extends Component {
           alt=""
           className="preview-chat-image"
         />
-        <small className="p-0 m-0 muted">Send Messages to recent contacts</small>
-        <small className="p-0 m-0 muted">Send Messages to new contact list</small>
-        <small className="p-0 m-0 muted">View messages in table format</small>
+        <small className="muted">Send Messages to recent contacts</small>
+        <small className="muted">Send Messages to new contact list</small>
+        <small className="muted">View messages in table format</small>
       </div>
     );
   }

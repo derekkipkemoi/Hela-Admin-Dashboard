@@ -1,8 +1,7 @@
 .advance-requests-holder {
-  margin-top: 100px;
   margin-bottom: 50px;
-  padding: 20px;
-  background-color: var(--white-color);
+  padding: 0px 0px 0px 0px;
+  
 }
 
 .all-advance-requests-holder {
@@ -14,7 +13,7 @@
     margin: 10px 2px 2px 0px;
     width: auto;
     background-color: var(--white-color);
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 5px 15px 5px 15px;
     border: 1px solid var(--gray-color);
     color: var(--gray-color);
@@ -120,7 +119,7 @@
   margin-left: 5px;
   padding: 0px 5px 0px 5px;
   color: var(--white-color);
-  border-radius: 15px;
+  border-radius: 5px;
   cursor: pointer;
 }
 

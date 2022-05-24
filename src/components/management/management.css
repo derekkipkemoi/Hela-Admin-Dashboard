@@ -1,5 +1,4 @@
 .management-section {
-  margin-top: 80px;
   margin-right: 20px;
   border-radius: 10px;
   display: flex;
@@ -37,18 +36,22 @@
 
 .btn-tab {
   border-radius: 5px;
-  background-color: #fff;
+  background-color: var(--green-color);
   border: 1px solid #fff;
-  color: #000;
+  color: var(--white-color);
+  padding: 10px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .btn-tab-selected {
   border-radius: 5px;
   background-color: #fff;
   border: 1px solid #fff;
+  padding: 10px;
   margin-right: 20px;
   color: gray;
+  cursor: pointer;
 }
 
 .btn-tab-selected:hover {
@@ -56,6 +59,7 @@
   background-color: #fff;
   border: 1px solid #fff;
   margin-right: 20px;
+  padding: 10px;
   color: gray;
 }
 
@@ -202,7 +206,7 @@
   border-color: none !important;
 }
 
-.btn-user-details{
+.btn-user-details {
   background-color: var(--main-background-color);
   border: none;
   border-radius: 5px;
@@ -211,7 +215,7 @@
   padding: 0px 10px 0px 10px;
 }
 
-.btn-user-details:hover{
+.btn-user-details:hover {
   background-color: var(--main-background-color);
   border: none;
   border-radius: 5px;
@@ -220,3 +224,13 @@
   padding: 0px 10px 0px 10px;
 }
 
+.permission-header {
+  background-color: var(--green-color);
+  color: var(--white-color);
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.permission-description {
+  background-color: var(--main-background-color);
+}

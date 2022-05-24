@@ -13,6 +13,9 @@ import React, { Component } from "react";
 import _ from "lodash";
 import ReactTooltip from "react-tooltip";
 
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+
 import "./dataTables.css";
 
 const { faker } = require("@faker-js/faker");
@@ -38,7 +41,7 @@ function createData(permissionName, permissionDescription, permissionGroup) {
 for (let r = 0; r < 40; r++) {
   dataData[r] = createData(
     faker.name.jobTitle(),
-    faker.lorem.lines(2,4),
+    faker.lorem.lines(2, 4),
     faker.company.bsNoun()
   );
 }
@@ -61,10 +64,16 @@ class PermissionsDataTable extends Component {
   };
 
   componentDidMount = () => {
+    this.getPermissionsList()
     this.setState({
       pageCount: Math.ceil(this.state.data.length / this.state.pageSize),
       totalSizeInPage: this.state.pageSize,
     });
+  };
+
+  getPermissionsList = () => {
+    this.props.getPermissions()
+    console.log("Permissions", this.props.permissions)
   };
 
   filterData(inputValue) {
@@ -171,7 +180,12 @@ class PermissionsDataTable extends Component {
     });
   };
 
-  showPermission = (index, permissionName, permissionDescription, permissionGroup) => {
+  showPermission = (
+    index,
+    permissionName,
+    permissionDescription,
+    permissionGroup
+  ) => {
     this.setState({
       permissionName: permissionName,
       permissionDescription: permissionDescription,
@@ -196,7 +210,7 @@ class PermissionsDataTable extends Component {
             </div>
           </div>
           <div className="col d-flex justify-content-end col-md-3 col-xl-3">
-          <div className="actions-top-icons-datatables">
+            <div className="actions-top-icons-datatables">
               <img
                 data-tip
                 data-for="generateWORD"
@@ -611,9 +625,7 @@ class PermissionsDataTable extends Component {
               <div class="modal-content">
                 <div className="card-modal">
                   <div class="modal-header">
-                    <div class="action-title-modal">
-                      Delete Permission
-                    </div>
+                    <div class="action-title-modal">Delete Permission</div>
                     <button
                       type="button"
                       className="close-modal-button"
@@ -680,4 +692,11 @@ class PermissionsDataTable extends Component {
   }
 }
 
-export default PermissionsDataTable;
+function mapStateToProps(state) {
+  return {
+    permissions: state.userRolesAndPermissions.permissions,
+    message: state.userRolesAndPermissions.message,
+  };
+}
+
+export default connect(mapStateToProps, actions)(PermissionsDataTable);

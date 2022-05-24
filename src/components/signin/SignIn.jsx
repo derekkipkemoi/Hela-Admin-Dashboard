@@ -17,6 +17,11 @@ class Signin extends Component {
   };
 
   componentDidMount = () => {
+    const dashboardcontent = document.getElementById("dashboard-content");
+
+    if (dashboardcontent) {
+      dashboardcontent.classList.remove("body-pd");
+    }
     if (this.props.isAuthenticated) {
       this.props.history.push("/");
     }
@@ -45,9 +50,7 @@ class Signin extends Component {
         <div className="row justify-content-center">
           <div className="col-lg-4">
             <div className="card mb-3">
-              <div className="fs-5 text-dark text-center">
-                Log In
-              </div>
+              <div className="fs-5 text-dark text-center">Log In</div>
               <hr />
               <div className="card-body m-3">
                 <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -102,8 +105,6 @@ class Signin extends Component {
                         )}
                       </span>
                     </div>
-
-                   
                   </div>
                   {this.state.loading ? <Spinner /> : null}
                   <div className="d-grid gap-2">
@@ -117,16 +118,21 @@ class Signin extends Component {
                 </form>
               </div>
 
-              {this.props.message.length > 0 ? (
+              {this.props.message ? (
                 <div className="alert alert-danger text-center m-3 p-1">
                   {this.props.message}
                 </div>
               ) : null}
-
-             
             </div>
           </div>
-          <p className="text-center">Forgot Password ? <span><Link className="fw-bold text-dark ms-2" to={"/resetpassword"}>Reset Password</Link></span></p>
+          <p className="text-center">
+            Forgot Password ?{" "}
+            <span>
+              <Link className="fw-bold text-dark ms-2" to={"/resetpassword"}>
+                Reset Password
+              </Link>
+            </span>
+          </p>
         </div>
       </div>
     );

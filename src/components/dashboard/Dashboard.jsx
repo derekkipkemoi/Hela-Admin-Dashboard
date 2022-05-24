@@ -36,6 +36,7 @@ class Dashboard extends Component {
     return (
       <div>
         {this.props.location.pathname === "/messages" ? <Messages /> : null}
+        {this.props.location.pathname === "/messages/tabledmessages" ? <Messages /> : null}
         {this.props.location.pathname === "/messages/newmessage" ? <NewMessage/> : null}
         {this.props.location.pathname === "/profile" ? <Profile /> : null}
         {this.props.location.pathname === "/settings" ? <Profile /> : null}

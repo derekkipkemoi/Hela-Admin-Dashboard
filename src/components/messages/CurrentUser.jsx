@@ -25,7 +25,7 @@ class CurrentUser extends Component {
     return (
       <div>
         {messagesFilteredBySenderid[0] !== undefined ? (
-          <div className="row current-user">
+          <div className="current-user">
             <div className="row">
               <div className="d-flex justify-content-center user-image-section">
                 <img src={messagesFilteredBySenderid[0].senderImage} alt="" />
@@ -33,15 +33,19 @@ class CurrentUser extends Component {
             </div>
 
             <div className="row">
+              <div className="col">
               <div className="d-flex justify-content-center user-name-section">
-                <div className="fw-bold muted">{messagesFilteredBySenderid[0].sender}</div>
+                <div className="fw-bold muted">{messagesFilteredBySenderid[0].sender.substring(0, 10)}</div>
+              </div>
               </div>
             </div>
 
             <div className="row">
+              <div className="col">
               <div className="d-flex justify-content-center user-last-message-section">
-                <div className="left m-0 p-0">Last Interacted: </div>
+                <div className="left">Last Interacted: </div>
                 <span className="right">{messagesFilteredBySenderid[0].sentTime}</span>
+              </div>
               </div>
             </div>
 
@@ -49,12 +53,13 @@ class CurrentUser extends Component {
               <hr />
             </div>
 
+
             <div className="d-flex flex-column user-bottom-section">
-              <div className="mt-3 user-email">
-                <p className="m-0 fw-bold ">
+            <div className="col">
+              <div className="user-email">
                   <AlternateEmail /> Email:
-                </p>
                 <p className="m-0">support@coderthemes.com</p>
+              </div>
               </div>
               <div className="mt-3 user-phone">
                 <p className="m-0 fw-bold ">

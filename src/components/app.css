@@ -59,6 +59,7 @@ a {
   left: -30%;
   width: var(--nav-width);
   height: 100vh;
+  margin-top: var(--header-height);
   background-color: var(--yellow-color);
   padding: 0.5rem 1rem 0 0;
   transition: 0.5s;
@@ -70,23 +71,22 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 0px;
+  margin-top: -10px;
   overflow: hidden;
 }
 
-.nav_logo,
 .nav_link {
   grid-template-columns: max-content max-content;
   align-items: center;
   column-gap: 1rem;
   height: 45px;
-  margin-top: 10px;
   padding: 0.5rem 0 0.5rem 1.5rem;
 }
 .nav_link {
   position: relative;
   font-size: 14px;
   transition: 0.3s;
+  margin-top: 5px;
   color: var(--white-color);
 }
 
@@ -123,34 +123,16 @@ a {
 
 .nav-sub-link ul li {
   list-style-type: none;
-  color: var(--green-color);
 }
 
 .nav_logo img {
-  width: 160px;
-  height: 110px;
-  margin-left: 32px;
+  width: 72px;
+  height: 72px;
+  margin-left: 1rem;
+  padding: 2px 0px 2px 0px;
 }
 
-.active {
-  color: var(--green-color);
-  /* margin-left: 8px;
-  background-color: #fff;
-  border-radius: 6px; */
-}
 
-.active a {
-  color: var(--green-color);
-}
-
-.active::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 2.5px;
-  height: 32px;
-  background-color: var(--green-color);
-}
 
 hr {
   margin-top: 1rem;
@@ -216,16 +198,15 @@ hr {
   }
 
   .dashboard-content {
-    padding-left: calc(var(--nav-width) + 2rem);
+    padding-left: calc(var(--nav-width));
   }
 
   .l-navbar {
     left: 0;
-    padding: 1rem 0.5rem 0 0;
   }
 
   .bx-x {
-    padding-left: calc(var(--nav-width) + 120px);
+    padding-left: calc(var(--nav-width));
   }
 
   .show-side-nav {
