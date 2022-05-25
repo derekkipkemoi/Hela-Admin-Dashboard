@@ -32,26 +32,26 @@ const columns = [
   },
 ];
 
-let dataData = [];
+// let this.props.permissions = [];
 
-function createData(permissionName, permissionDescription, permissionGroup) {
-  return { permissionName, permissionDescription, permissionGroup };
-}
+// function createData(permissionName, permissionDescription, permissionGroup) {
+//   return { permissionName, permissionDescription, permissionGroup };
+// }
 
-for (let r = 0; r < 40; r++) {
-  dataData[r] = createData(
-    faker.name.jobTitle(),
-    faker.lorem.lines(2, 4),
-    faker.company.bsNoun()
-  );
-}
+// for (let r = 0; r < 40; r++) {
+//   this.props.permissions[r] = createData(
+//     faker.name.jobTitle(),
+//     faker.lorem.lines(2, 4),
+//     faker.company.bsNoun()
+//   );
+// }
 
 class PermissionsDataTable extends Component {
   state = {
-    data: dataData,
+    data: this.props.permissions,
     selectedPage: 1,
     pageSize: 10,
-    data: dataData,
+    data: this.props.permissions,
     columns: columns,
     pageCount: 0,
     initialItemInPage: 1,
@@ -64,7 +64,7 @@ class PermissionsDataTable extends Component {
   };
 
   componentDidMount = () => {
-    this.getPermissionsList()
+    this.getPermissionsList();
     this.setState({
       pageCount: Math.ceil(this.state.data.length / this.state.pageSize),
       totalSizeInPage: this.state.pageSize,
@@ -72,12 +72,12 @@ class PermissionsDataTable extends Component {
   };
 
   getPermissionsList = () => {
-    this.props.getPermissions()
-    console.log("Permissions", this.props.permissions)
+    this.props.getPermissions();
+    console.log("Permissions", this.props.permissions, this.props.message);
   };
 
   filterData(inputValue) {
-    const data = dataData;
+    const data = this.props.permissions;
     const filtered = data.filter(
       (item) =>
         item.permissionName.includes(inputValue) ||
@@ -96,14 +96,14 @@ class PermissionsDataTable extends Component {
 
     if (inputValue.length <= 0) {
       this.setState({
-        data: dataData,
+        data: this.props.permissions,
       });
     }
   };
 
   changePage = (page) => {
     let startIndex = (page - 1) * this.state.pageSize;
-    let slicedData = dataData.slice(startIndex);
+    let slicedData = this.props.permissions.slice(startIndex);
     if (page === 1) {
       this.setState({
         selectedPage: page,
@@ -126,9 +126,9 @@ class PermissionsDataTable extends Component {
   changePageSize = (value) => {
     if (value !== "all") {
       this.setState({
-        data: dataData,
+        data: this.props.permissions,
         pageSize: value,
-        pageCount: Math.ceil(dataData.length / value),
+        pageCount: Math.ceil(this.props.permissions.length / value),
         totalSizeInPage: value,
         selectedPage: 1,
         initialItemInPage: 1,
@@ -136,10 +136,12 @@ class PermissionsDataTable extends Component {
     }
     if (value === "all") {
       this.setState({
-        data: dataData,
-        pageSize: dataData.length,
-        pageCount: Math.ceil(dataData.length / dataData.length),
-        totalSizeInPage: dataData.length,
+        data: this.props.permissions,
+        pageSize: this.props.permissions.length,
+        pageCount: Math.ceil(
+          this.props.permissions.length / this.props.permissions.length
+        ),
+        totalSizeInPage: this.props.permissions.length,
         selectedPage: 1,
         initialItemInPage: 1,
       });
@@ -152,7 +154,7 @@ class PermissionsDataTable extends Component {
     let startIndex = (page - 1) * this.state.pageSize;
     this.setState({
       selectedPage: this.state.selectedPage - 1,
-      data: dataData.slice(startIndex),
+      data: this.props.permissions.slice(startIndex),
       initialItemInPage: this.state.initialItemInPage - this.state.pageSize,
       totalSizeInPage: this.state.totalSizeInPage - this.state.pageSize,
     });
@@ -167,7 +169,7 @@ class PermissionsDataTable extends Component {
     let startIndex = (page - 1) * this.state.pageSize;
     this.setState({
       selectedPage: this.state.selectedPage + 1,
-      data: dataData.slice(startIndex),
+      data: this.props.permissions.slice(startIndex),
       initialItemInPage: this.state.initialItemInPage + this.state.pageSize,
       totalSizeInPage: this.state.totalSizeInPage + this.state.pageSize,
     });
@@ -285,85 +287,6 @@ class PermissionsDataTable extends Component {
                     <td>{dataItem.permissionName} </td>
                     <td>{dataItem.permissionDescription}</td>
                     <td>{dataItem.permissionGroup}</td>
-
-                    {/* <td style={{ width: "170px" }}>
-                      <span
-                        data-tip
-                        data-for="viewPermission"
-                        className="visibilityicon"
-                        data-bs-toggle="modal"
-                        data-bs-target="#viewrole"
-                      >
-                        <Visibility
-                          onClick={(e) =>
-                            this.showPermission(
-                              index,
-                              dataItem.permissionName,
-                              dataItem.permissionDescription,
-                              dataItem.permissionGroup
-                            )
-                          }
-                        />
-                      </span>
-                      <ReactTooltip
-                        id="viewPermission"
-                        type="info"
-                        effect="solid"
-                      >
-                        <span>View Permission</span>
-                      </ReactTooltip>
-                      <span
-                        data-tip
-                        data-for="editPermission"
-                        className="editicon"
-                        data-bs-toggle="modal"
-                        data-bs-target="#editrole"
-                      >
-                        <Edit
-                          onClick={(e) =>
-                            this.showPermission(
-                              index,
-                              dataItem.permissionName,
-                              dataItem.permissionDescription,
-                              dataItem.permissionGroup
-                            )
-                          }
-                        />
-                      </span>
-                      <ReactTooltip
-                        id="editPermission"
-                        type="info"
-                        effect="solid"
-                      >
-                        <span>Edit Permission</span>
-                      </ReactTooltip>
-                      <span
-                        data-bs-toggle="modal"
-                        data-bs-target="#deletePermissionModal"
-                        data-tip
-                        data-for="deletePermission"
-                        className="deleteicon"
-                        onClick={(e) => this.getDataItemId(index)}
-                      >
-                        <Delete
-                          onClick={(e) =>
-                            this.showPermission(
-                              index,
-                              dataItem.permissionName,
-                              dataItem.permissionDescription,
-                              dataItem.permissionGroup
-                            )
-                          }
-                        />
-                      </span>
-                      <ReactTooltip
-                        id="deletePermission"
-                        type="error"
-                        effect="solid"
-                      >
-                        <span>Delete Permission</span>
-                      </ReactTooltip>
-                    </td> */}
                   </tr>
                 );
               })}
@@ -437,10 +360,10 @@ class PermissionsDataTable extends Component {
             </div>
             <div className="datatable-footer-data">
               Showing {this.state.initialItemInPage} -{" "}
-              {this.state.totalSizeInPage > dataData.length
-                ? dataData.length
+              {this.state.totalSizeInPage > this.props.permissions.length
+                ? this.props.permissions.length
                 : this.state.totalSizeInPage}{" "}
-              of {dataData.length}
+              of {this.props.permissions.length}
             </div>
             <div>
               <ul className="pagination d-flex m-0">
@@ -693,8 +616,22 @@ class PermissionsDataTable extends Component {
 }
 
 function mapStateToProps(state) {
+  let permissionList = [];
+  let permissionsArrayed = Object.entries(
+    state.userRolesAndPermissions.permissionsList
+  );
+
+  for (let x = 0; x < permissionsArrayed.length; x++) {
+    let arrayedSub = Object.entries(permissionsArrayed[x][1]);
+    for (let y = 0; y < arrayedSub.length; y++) {
+      permissionList.push(arrayedSub[y]);
+    }
+  }
   return {
-    permissions: state.userRolesAndPermissions.permissions,
+    permissions: permissionList,
+    permissionsWithGroups: Object.entries(
+      state.userRolesAndPermissions.permissionsList
+    ),
     message: state.userRolesAndPermissions.message,
   };
 }

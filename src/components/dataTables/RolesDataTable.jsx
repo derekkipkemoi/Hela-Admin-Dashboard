@@ -31,8 +31,8 @@ const columns = [
   },
 ];
 
-function createData(roleName, roleDescription) {
-  return { roleName, roleDescription };
+function createData(permissionName, permissionDescription, permissionGroup) {
+  return {permissionName, permissionDescription, permissionGroup };
 }
 
 // for (let r = 0; r < 40; r++) {
@@ -63,7 +63,6 @@ class RolesDataTable extends Component {
 
   getRoles = async () => {
     await this.props.getRoles();
-    console.log("Roles", this.props.roles);
   };
 
   filterMessages(inputValue) {

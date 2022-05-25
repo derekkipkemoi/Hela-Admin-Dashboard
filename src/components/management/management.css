@@ -225,12 +225,12 @@
 }
 
 .permission-header {
-  background-color: var(--green-color);
-  color: var(--white-color);
   padding: 5px 10px 5px 10px;
   border-radius: 5px 5px 0px 0px;
 }
 
 .permission-description {
-  background-color: var(--main-background-color);
+  background-color: var(--approve-color);
+  color: var(--white-color);
+  border-radius: 5px;
 }

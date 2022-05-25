@@ -37,8 +37,8 @@ class Messages extends Component {
 
   render() {
     return (
-      <div class="px-1 py-3" id="custom-cards">
-        <div class="pb-2 fw-bold">Messages</div>
+      <div>
+        <div class="fw-bold">Messages</div>
         <div className="d-flex flex-row justify-content-between">
         
         <TopMessagingIcons/>

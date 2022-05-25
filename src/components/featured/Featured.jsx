@@ -74,7 +74,7 @@ class Featured extends Component {
   
           <div className="row">
             <div className="col">
-              <div className="card">
+              <div className="card border">
                 <div className="chart-header card-header ">
                   <div className="chart-header-name fw-bold">Charts</div>
   

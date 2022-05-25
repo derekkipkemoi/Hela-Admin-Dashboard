@@ -33,7 +33,6 @@ export const SignIn = (data) => {
               user_type: res.data.user_type,
             },
           });
-          console.log("token and phone", res.headers.token, res.data.phone);
           localStorage.setItem("JWT_TOKEN", res.headers.token);
           localStorage.setItem("PHONE", res.data.phone);
       }
@@ -122,12 +121,11 @@ export const getRoles = () => {
           phone: userPhone,
         },
       };
-      console.log("Roles token and phone", token, userPhone);
       const res = await axios.get(
         baseUrl + "/admin-api/get-roles-and-permissions?type=1",
         config
       );
-      // console.log("Roles response", res.data);
+
       switch (res.data.status) {
         case 200:
           dispatch({
@@ -170,7 +168,6 @@ export const getRoleDetails = (role) => {
         baseUrl + "/admin-api/get-role-permissions?role_name=" + role,
         config
       );
-      // console.log("Roles response", res.data.assigned_permissions);
       switch (res.data.status) {
         case 200:
           dispatch({
@@ -214,17 +211,12 @@ export const getPermissions = () => {
         baseUrl + "/admin-api/get-roles-and-permissions",
         config
       );
-      console.log(
-        "Permissions list",
-        res.data.user_permissions,
-        res.data.status
-      );
       switch (res.data.status) {
         case 200:
           dispatch({
             type: PERMISSION_DETAILS,
             payLoad: {
-              permissions: res.data.user_permissions,
+              permissionsList: res.data.user_permissions,
               message: res.data.message,
             },
           });

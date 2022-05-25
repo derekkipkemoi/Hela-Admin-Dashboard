@@ -199,15 +199,15 @@
 .actions-search-datatables {
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--main-background-color);
   border-radius: 30px;
   margin: 5px;
-  border: 1px solid var(--table-color);
 }
 
 .actions-search-datatables .input-section {
   border-radius: 30px;
   border: none;
+  background-color: var(--main-background-color);
 }
 .actions-top-icons-datatables {
   position: relative;

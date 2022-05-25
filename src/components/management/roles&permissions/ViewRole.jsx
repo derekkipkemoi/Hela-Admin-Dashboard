@@ -4,13 +4,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../actions";
 import "../management.css";
-
-
+import PageLoadingSpinner from "../../spinner/PageLoadingSpinner";
 
 class ViewRole extends Component {
   state = {
     roleName: this.props.location.state.role,
     roleDescription: this.props.location.state.description,
+    loading: false,
   };
 
   componentDidMount = () => {
@@ -22,7 +22,13 @@ class ViewRole extends Component {
   };
 
   getRoleDetails = async () => {
+    this.setState({
+      loading: true,
+    });
     await this.props.getRoleDetails(this.state.roleName);
+    this.setState({
+      loading: false,
+    });
   };
   render() {
     let assignedPermissions = Object.entries(this.props.assigned_permissions);
@@ -33,9 +39,6 @@ class ViewRole extends Component {
       assign_permission < assignedPermissions.length;
       assign_permission++
     ) {
-      // let permission = Object.entries(assignedPermissions[assign_permission]);
-      // console.log("Hallo", assignedPermissions[assign_permission][1]);
-
       permissionsNames.push(assignedPermissions[assign_permission][0]);
       const output = Object.entries(
         assignedPermissions[assign_permission][1]
@@ -92,33 +95,37 @@ class ViewRole extends Component {
                 ></textarea>
               </div>
 
-              <div class="container">
-                <text>Role Permissions</text>
-                <hr />
-                {assignedPermissions.map((permission, index) => {
-                  return (
-                    <div className="mt-3">
-                      <text className="fw-bold permission-header">
-                        {permissionsNames[index]}
-                      </text>
-                      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
-                        {permissionsDescriptions[index].map(
-                          (permissionDescription, index1) => {
-                            return (
-                              <div class="col">
-                                <div class="p-3 border mt-0 permission-description">
-                                  {permissionDescription.value}
+              {this.state.loading ? (
+                <PageLoadingSpinner />
+              ) : (
+                <div class="container">
+                  <text>Role Permissions</text>
+                  <hr />
+                  {assignedPermissions.map((permission, index) => {
+                    return (
+                      <div className="mt-3">
+                        <text className="fw-bold permission-header">
+                          {permissionsNames[index]}
+                        </text>
+                        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
+                          {permissionsDescriptions[index].map(
+                            (permissionDescription, index1) => {
+                              return (
+                                <div class="col">
+                                  <div class="p-1 border mt-0 permission-description text-d bg-dark">
+                                    {permissionDescription.value}
+                                  </div>
                                 </div>
-                              </div>
-                            );
-                          }
-                        )}
+                              );
+                            }
+                          )}
+                        </div>
+                        <hr className="fw-bold"></hr>
                       </div>
-                      <hr className="fw-bold"></hr>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>

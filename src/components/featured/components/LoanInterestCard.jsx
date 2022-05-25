@@ -12,7 +12,7 @@ export default function LoanInterestCard() {
 }
 return (
   <div className="col-md-3 mb-3">
-    <div className="card text-dark p-3" style={ cardBackgroundColor }>
+    <div className="card border text-dark p-3" style={ cardBackgroundColor }>
       
         <div className="card-content">
           <div className="text-muted card-title float-start">Loan Interest</div>

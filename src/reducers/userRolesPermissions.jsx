@@ -3,7 +3,7 @@ import { USER_ROLES, ROLES, ROLE_DETAILS, PERMISSION_DETAILS } from "../actions/
 const DEFAULT_STATE = {
   role: "",
   roles: [],
-  permissions: {},
+  permissionsList: [],
   assigned_permissions: {},
   user_permissions: {},
   message: "",
@@ -36,7 +36,7 @@ export default (state = DEFAULT_STATE, action) => {
     case PERMISSION_DETAILS:
       return{
         ...state,
-        permissions: action.payload.permissions,
+        permissionsList: action.payLoad.permissionsList,
         message: action.payLoad.message
       }
 

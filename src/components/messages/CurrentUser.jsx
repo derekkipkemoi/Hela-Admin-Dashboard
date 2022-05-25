@@ -25,7 +25,7 @@ class CurrentUser extends Component {
     return (
       <div>
         {messagesFilteredBySenderid[0] !== undefined ? (
-          <div className="current-user">
+          <div className="current-user pt-4">
             <div className="row">
               <div className="d-flex justify-content-center user-image-section">
                 <img src={messagesFilteredBySenderid[0].senderImage} alt="" />
