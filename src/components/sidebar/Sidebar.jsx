@@ -17,37 +17,29 @@ import {
   ArrowDropDown,
   ArrowRightAlt,
   KeyboardArrowDown,
+  KeyboardArrowRight,
 } from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
 
 const navLinks = [
   {
     linkName: "Home",
     to: "/",
-    linkIcon: <Home />,
+    linkIcon: <Home style={{ fontSize: 23 }} />,
     subLink: [],
   },
   {
     linkName: "Messages",
-    linkIcon: <Forum />,
-    subLink: [
-      {
-        linkName: "All Message",
-        to: "/messages",
-      },
-      {
-        linkName: "New Message",
-        to: "/messages/newmessage",
-      },
-
-      {
-        linkName: "Tabled Messages",
-        to: "/messages/tabledmessages",
-      },
-    ],
+    to: "/messages",
+    linkIcon: <Forum style={{ fontSize: 23 }} />,
+    subLink: [],
   },
   {
     linkName: "Reports",
-    linkIcon: <Assessment />,
+    linkIcon: <Assessment style={{ fontSize: 23 }} />,
     subLink: [
       {
         linkName: "Advance Requests",
@@ -72,7 +64,7 @@ const navLinks = [
   {
     linkName: "Management",
     to: "/rolespermissions",
-    linkIcon: <AdminPanelSettings />,
+    linkIcon: <AdminPanelSettings style={{ fontSize: 23 }} />,
     subLink: [
       {
         linkName: "Roles and Permissions",
@@ -91,29 +83,29 @@ const navLinks = [
   {
     linkName: "Agencies & Companies",
     to: "/",
-    linkIcon: <Business />,
+    linkIcon: <Business style={{ fontSize: 23 }} />,
     subLink: [
       {
         linkName: "Messages",
         to: "/messages",
-        linkIcon: <Message />,
+        linkIcon: <Message style={{ fontSize: 20 }} />,
       },
       {
         linkName: "Messages",
         to: "/messages",
-        linkIcon: <Message />,
+        linkIcon: <Message style={{ fontSize: 20 }} />,
       },
       {
         linkName: "Messages",
         to: "/messages",
-        linkIcon: <Message />,
+        linkIcon: <Message style={{ fontSize: 20 }} />,
       },
     ],
   },
   {
     linkName: "Refferals",
     to: "/refferals",
-    linkIcon: <ChangeCircle />,
+    linkIcon: <ChangeCircle style={{ fontSize: 23 }} />,
     subLink: [
       {
         linkName: "Refferals",
@@ -144,34 +136,34 @@ const navLinks = [
   {
     linkName: "Share & Rewards",
     to: "/share&reward/userrefferals",
-    linkIcon: <Share />,
+    linkIcon: <Share style={{ fontSize: 23 }} />,
     subLink: [
       {
         linkName: "User Referrals",
         to: "/share&reward/userrefferals",
-        linkIcon: <Message />,
+        linkIcon: <Message style={{ fontSize: 20 }} />,
       },
       {
         linkName: "Redeem Requests",
         to: "/share&reward/redeemrequests",
-        linkIcon: <Message />,
+        linkIcon: <Message style={{ fontSize: 20 }} />,
       },
       {
         linkName: "Pending Disbursement",
         to: "/share&reward/pendingdisbursement",
-        linkIcon: <Message />,
+        linkIcon: <Message style={{ fontSize: 20 }} />,
       },
       {
         linkName: "Processed Rewards",
         to: "/share&reward/processedrewards",
-        linkIcon: <Message />,
+        linkIcon: <Message style={{ fontSize: 20 }} />,
       },
     ],
   },
   {
     linkName: "Reminders",
     to: "/messages",
-    linkIcon: <NotificationsNone />,
+    linkIcon: <NotificationsNone style={{ fontSize: 23 }} />,
     subLink: [
       {
         linkName: "Messages",
@@ -193,7 +185,7 @@ const navLinks = [
   {
     linkName: "Top Ups",
     to: "/",
-    linkIcon: <AlignVerticalTop />,
+    linkIcon: <AlignVerticalTop style={{ fontSize: 23 }} />,
     subLink: [
       {
         linkName: "Messages",
@@ -213,6 +205,18 @@ const navLinks = [
     ],
   },
 ];
+
+const HtmlTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#f5f5f9",
+    color: "rgba(0, 0, 0, 0.87)",
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: "1px solid #dadde9",
+  },
+}));
 
 class SideBar extends Component {
   state = {
@@ -244,8 +248,14 @@ class SideBar extends Component {
   };
 
   navItemClicked = (index) => {
-    const newElement = document.getElementById(index);
-    newElement.classList.toggle("nav-link-item");
+    const navBar = document.getElementById("nav-bar");
+    if (navBar.classList.contains("show-side-nav")) {
+      const newElement = document.getElementById(index);
+      newElement.classList.toggle("nav-link-item");
+
+      const navCarret = document.getElementById(index + 100);
+      navCarret.classList.toggle("nav_carret");
+    }
   };
 
   navItemHomeClicked = (index) => {
@@ -279,80 +289,113 @@ class SideBar extends Component {
       "" + navIndex + navSubLinkIndex
     );
     navLinkElement1.classList.toggle("active");
-
-    this.setState({
-      currentSelectedIndex: navIndex,
-    });
   };
 
   expandMenu = (index) => {
     const newElement = document.getElementById(index);
     newElement.classList.toggle("nav-link-item");
 
-    this.setState({
-      currentSelectedIndex: index,
-    });
+    const navCarret = document.getElementById(index + 100);
+    navCarret.classList.toggle("nav_carret");
   };
 
   render() {
+    const styles = {
+      largeIcon: {
+        width: 60,
+        height: 60,
+      },
+    };
     const links = navLinks;
     return (
       <div>
         <div className="l-navbar" id="nav-bar">
-          <nav className="nav">
+          <nav className="nav mt-2">
             <div>
-              
               <div className="nav_list">
                 {links.map((nav, index) => {
                   return (
-                    <div>
-                      <div className="d-flex">
+                    <div className={index > 0 ? "mt-3" : null}>
+                      <div
+                        className="d-flex align-items-center"
+                        id={nav.linkName}
+                      >
                         <Link
-                          id={nav.linkName}
-                          to={nav.linkName === "Home" ? nav.to : null}
-                          className="flex-row d-flex nav_link"
+                          to={
+                            nav.linkName === "Home" ||
+                            nav.linkName === "Messages"
+                              ? nav.to
+                              : null
+                          }
+                          className="d-flex nav_link"
                           key={index}
                           onClick={
-                            nav.linkName === "Home"
+                            nav.linkName === "Home" ||
+                            nav.linkName === "Messages"
                               ? (e) => this.navItemHomeClicked(index)
                               : (e) => this.navItemClicked(index)
                           }
                         >
-                          <span className="nav-item-icon fw-bold">
-                            {nav.linkIcon}
-                          </span>
+                          {!this.props.NavBarExpanded ? (
+                            <HtmlTooltip
+                              title={
+                                <div className="card-sidebar-tooltip">
+                                  <p className="fs-6">{nav.linkName}</p>
+                                  {nav.subLink.map((subnav, index1) => {
+                                    return (
+                                      <div className="p-1">
+                                        <p>
+                                          <Link
+                                            className="text-dark"
+                                            to={subnav.to}
+                                          >
+                                            {subnav.linkName}
+                                          </Link>
+                                        </p>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              }
+                            >
+                              <span className="side-bar-icon">
+                                {nav.linkIcon}
+                              </span>
+                            </HtmlTooltip>
+                          ) : (
+                            <span className="side-bar-icon">
+                              {nav.linkIcon}
+                            </span>
+                          )}
+
                           <span className="nav_name">{nav.linkName}</span>
                         </Link>
                         {nav.subLink.length > 0 ? (
                           <span
                             onClick={(e) => this.expandMenu(index)}
-                            className="nav_carret ms-auto mt-3 text-light"
+                            id={index + 100}
+                            className="ms-auto"
                           >
-                            <KeyboardArrowDown />
+                            <KeyboardArrowRight />
                           </span>
                         ) : null}
                       </div>
-                      <div className="nav-sub-link" id={index}>
-                        <ul>
-                          {nav.subLink.map((subnav, index1) => (
-                            <Link
-                              to={subnav.to}
-                              className={index > 0 ? "mt-4" : null}
-                              onClick={(e) => this.navItemClick(index, index1)}
-                            >
-                              <div className="active-sublink-name">
-                                <li id={"" + index + index1}>
-                                  <div className="d-flex">
-                                    <ArrowRightAlt className="sub-link-arrow" />
-                                    <div className="sub-link-name">
-                                      {subnav.linkName}
-                                    </div>
-                                  </div>
-                                </li>
+                      <div className="nav-sub-link mt-1" id={index}>
+                        {nav.subLink.map((subnav, index1) => (
+                          <Link
+                            to={subnav.to}
+                            className={index > 0 ? "mt-3" : null}
+                            onClick={(e) => this.navItemClick(index, index1)}
+                          >
+                            <div className="sub-link">
+                              <div id={"" + index + index1}>
+                                <div className="sub-link-name p-2">
+                                  {subnav.linkName}
+                                </div>
                               </div>
-                            </Link>
-                          ))}
-                        </ul>
+                            </div>
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   );

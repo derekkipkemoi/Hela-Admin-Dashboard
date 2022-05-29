@@ -49,7 +49,7 @@ class CurrentUser extends Component {
               </div>
             </div>
 
-            <div className="col user-horizontal-line-section">
+            <div className="user-horizontal-line-section">
               <hr />
             </div>
 
@@ -58,7 +58,7 @@ class CurrentUser extends Component {
             <div className="col">
               <div className="user-email">
                   <AlternateEmail /> Email:
-                <p className="m-0">support@coderthemes.com</p>
+                <div className="m-0">support@coderthemes.com</div>
               </div>
               </div>
               <div className="mt-3 user-phone">

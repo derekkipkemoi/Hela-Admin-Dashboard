@@ -1,8 +1,8 @@
 .chart-filter-dropdown{
     position: relative;
     background-color: #7c992c !important;
-    border:1px solid #7c992c;
+    border:1px solid var(--border-color);
     border-radius: 5px 5px 5px 5px;
-    left: 20px;
+    left: 0px;
     margin-right: 30px;
 }

@@ -1,29 +1,57 @@
 import React from "react";
 
-import { AccountBalance, ArrowUpward, ArrowDownward } from "@mui/icons-material";
-
+import {
+  AccountBalance,
+  ArrowUpward,
+  ArrowDownward,
+} from "@mui/icons-material";
 
 export default function SalaryAdvanceReceivedCard() {
   const cardBackgroundColor = {
     backgroundColor: "#fff",
   };
 
+  const statTitle = {
+    color: "#1a3353",
+    fontSize: "15px",
+  };
+
+  const statValue = {
+    color: "#1a3353",
+  };
+
   const upwardarrowstyle = {
-    color: "#fa5c7c"
-}
+    color: "#fa5c7c",
+  };
+
+  const footerText = {
+    color: "#72849a",
+  };
 
   return (
-    <div className="col-md-3 mb-3">
-      <div className="card border text-dark p-3" style={ cardBackgroundColor }>
-        
-          <div className="card-content">
-            <div className="text-muted card-title float-start">Salary Adv. Received</div>
-            <div className="float-end card-icon"><AccountBalance/></div>
+    <div className="col-sm-12 col-md-4  col-xl-3 col-xxl-3 mb-3">
+      <div className="card border text-dark p-4" style={cardBackgroundColor}>
+        <div className="card-content">
+          <div className="fw-bold card-title float-start" style={statTitle}>
+            Salary Ad. Received
           </div>
-          <div className="fw-bold fs-4">2,850</div>
+          {/* <div className="float-end card-icon"><People/></div> */}
+        </div>
+        <div className="d-flex align-items-center">
+          <div className="fw-bold fs-3" style={statValue}>
+            24,850
+          </div>
+          <span className="ms-2" style={upwardarrowstyle}>
+            <ArrowUpward />
+          </span>
+          <span className="fw-bold" style={upwardarrowstyle}>
+            5.27%
+          </span>
+        </div>
 
-          <div className="pt-3 text-muted"><span className="pe-2 fw-bold" style={upwardarrowstyle}><ArrowDownward/></span><span style={upwardarrowstyle}>5.27%</span><span className="ms-3">Since last month</span></div>
-        
+        <div style={footerText}>
+          Compare to last year (2020)
+        </div>
       </div>
     </div>
   );

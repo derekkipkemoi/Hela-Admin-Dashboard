@@ -8,6 +8,7 @@ import CurrentUser from "./CurrentUser";
 import { Refresh } from "@mui/icons-material";
 import DataTablesFeatured from "../dataTables/DataTablesFeatured";
 import MessagesDataTables from "../dataTables/MessagesDataTables";
+import MessagesNav from "./MessagesNav";
 
 class Messages extends Component {
   state = {
@@ -22,83 +23,26 @@ class Messages extends Component {
     });
   };
 
-  showMessagingTables=()=>{
+  showMessagingTables = () => {
     this.setState({
-      showChat: false
-    })
-  }
+      showChat: false,
+    });
+  };
 
-  showChat=()=>{
+  showChat = () => {
     this.setState({
-      showChat: true
-    })
-  }
-
+      showChat: true,
+    });
+  };
 
   render() {
     return (
       <div>
-        <div class="fw-bold">Messages</div>
-        <div className="d-flex flex-row justify-content-between">
-        
-        <TopMessagingIcons/>
-
-        <div className="col tabs-section">
-          {/* <div
-            className={
-              this.state.showChat ? "btn btn-tab-selected" : "btn btn-tab"
-            }
-            onClick={this.showChat}
-          >
-            Messaging
-          </div>
-          <div
-            className={
-              this.state.showChat ? "btn btn-tab" : "btn btn-tab-selected"
-            }
-            onClick={this.showMessagingTables}
-          >
-            More
-          </div> */}
-
-          <div className="refresh-management-button">
-            <Refresh />
-          </div>
-        </div>
-        </div>
-        
-        {this.props.location.pathname === "/messages" ? 
-        <div class="row mt-2">
-        <div class="col-sm-12 col-md-6 col-xl-3 col-xxl-3 ">
+        {this.props.location.pathname === "/messages" ? (
           <div>
-            <div className="message-left-section">
-              <LeftSectionMessageCard
-                sendMessageCardEvent={this.receiveMessageCardEvent}
-              />
-            </div>
+            <MessagesNav />
           </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-xl-6 col-xxl-6">
-          <div>
-            <div className="message-right-section">
-              <RightSection getSenderId={this.state.senderId} />
-            </div>
-          </div>
-        </div>
-
-        <div class="messaging-user-details-section col-sm-12 col-md-12 col-xl-3 col-xxl-3 ">
-         
-            <CurrentUser getSenderId={this.state.senderId} />
-          
-        </div>
-      </div>
-        : null}
-
-        {this.props.location.pathname === "/messages/tabledmessages" ? 
-        <MessagesDataTables/>
-        : null}
-        
+        ) : null}
       </div>
     );
   }

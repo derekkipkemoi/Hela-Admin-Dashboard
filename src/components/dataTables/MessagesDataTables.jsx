@@ -156,8 +156,8 @@ class MessagesDataTables extends Component {
               />
             </div>
           </div>
-          <div className="col d-flex justify-content-end col-md-3 col-xl-3">
-          <div className="actions-top-icons-datatables">
+          <div className="pt-1 col d-flex justify-content-end col-md-3 col-xl-3">
+            <div className="actions-top-icons-datatables">
               <img
                 data-tip
                 data-for="generateWORD"
@@ -215,49 +215,51 @@ class MessagesDataTables extends Component {
             </div>
           </div>
         </div>
-        <table id="bootstrapDataTable" class="data-table-class table">
-          <thead>
-            <tr className="data-table-head">
-              {this.state.columns.map((column, index) => {
-                return <th key={column.name}>{column.name}</th>;
-              })}
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data
-              .slice(0, this.state.pageSize)
-              .map((dataItem, index) => {
-                return (
-                  <tr className="data-table-body-row">
-                    <td>{dataItem.sender} </td>
-                    <td>{dataItem.senderId}</td>
-                    <td>{dataItem.message}</td>
-                    <td style={{ width: "80px" }}>{dataItem.sentTime}</td>
-                    <td style={{ width: "100px" }}>
-                      <span
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteMessageModal"
-                        data-tip
-                        data-for="deleteMessage"
-                        className="deleteicon"
-                        onClick={(e) => this.getMessageId(index)}
-                      >
-                        <Delete />
-                      </span>
-                      <ReactTooltip
-                        id="deleteMessage"
-                        type="error"
-                        effect="solid"
-                      >
-                        <span>Delete Message</span>
-                      </ReactTooltip>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-        <tfooter>
+        <div className="data-table-class">
+          <table id="bootstrapDataTable" className="table-wrapper table">
+            <thead>
+              <tr className="data-table-head">
+                {this.state.columns.map((column, index) => {
+                  return <th key={column.name}>{column.name}</th>;
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data
+                .slice(0, this.state.pageSize)
+                .map((dataItem, index) => {
+                  return (
+                    <tr className="data-table-body-row">
+                      <td>{dataItem.sender} </td>
+                      <td>{dataItem.senderId}</td>
+                      <td>{dataItem.message}</td>
+                      <td style={{ width: "80px" }}>{dataItem.sentTime}</td>
+                      <td style={{ width: "100px" }}>
+                        <span
+                          data-bs-toggle="modal"
+                          data-bs-target="#deleteMessageModal"
+                          data-tip
+                          data-for="deleteMessage"
+                          className="deleteicon"
+                          onClick={(e) => this.getMessageId(index)}
+                        >
+                          <Delete />
+                        </span>
+                        <ReactTooltip
+                          id="deleteMessage"
+                          type="error"
+                          effect="solid"
+                        >
+                          <span>Delete Message</span>
+                        </ReactTooltip>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        
+        <tfooter className="table-footer">
           <nav className="d-flex flex-end justify-content-between">
             <div className="m-0">
               <span className="me-2 table-dropdown-pagesize-text">Display</span>
@@ -323,13 +325,13 @@ class MessagesDataTables extends Component {
                 </ul>
               </div>
             </div>
-            <div className="datatable-footer-data">
+            {/* <div className="datatable-footer-data">
               Showing {this.state.initialItemInPage} -{" "}
               {this.state.totalSizeInPage > dataData.length
                 ? dataData.length
                 : this.state.totalSizeInPage}{" "}
               of {dataData.length}
-            </div>
+            </div> */}
             <div>
               <ul className="pagination d-flex m-0">
                 <span>
@@ -368,6 +370,7 @@ class MessagesDataTables extends Component {
             </div>
           </nav>
         </tfooter>
+        </div>
 
         {/* delete message modal */}
         <div>

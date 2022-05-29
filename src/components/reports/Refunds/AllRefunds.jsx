@@ -64,7 +64,7 @@ class AllTSCRequests extends Component {
   };
   render() {
     const styles = {
-      container: (css) => ({ ...css, width: "300px" }),
+      container: (css) => ({ ...css, width: "250px" }),
     };
     return (
       <div>
@@ -145,7 +145,7 @@ class AllTSCRequests extends Component {
                   isMulti={false}
                   styles={styles}
                 />
-                <button className="reports-query-button ms-1">
+                <button className="reports-query-button">
                   Assume Client Role
                 </button>
               </div>

@@ -23,6 +23,9 @@ class SingleSelect extends Component {
       };
       render() {
         const { selectedOption } = this.state;
+        const styles = {
+          container: (css) => ({ ...css, width: "250px" }),
+        };
     
         return (
           <Select
@@ -30,6 +33,7 @@ class SingleSelect extends Component {
             value={selectedOption}
             onChange={this.handleChange}
             options={options}
+            styles={styles}
           />
         );
       }

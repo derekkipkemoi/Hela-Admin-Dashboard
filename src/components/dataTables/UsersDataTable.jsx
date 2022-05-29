@@ -271,7 +271,7 @@ class UsersDataTable extends Component {
 
   render() {
     return (
-      <div className="card-datatable mt-2">
+      <div className="card-datatable">
         <div className="d-flex justify-content-between mt-2 mb-3">
           <div className="d-flex">
             <div className="col-md-3">
@@ -379,7 +379,8 @@ class UsersDataTable extends Component {
             </div>
           </div>
         </div>
-        <table id="bootstrapDataTable" className="data-table-class table">
+        <div className="data-table-class">
+        <table id="bootstrapDataTable" className="table-wrapper table">
           <thead>
             <tr className="data-table-head">
               {this.state.columns.map((column, index) => {
@@ -607,6 +608,7 @@ class UsersDataTable extends Component {
             </div>
           </nav>
         </tfooter>
+        </div>
 
         {/* role-modal */}
 

@@ -37,7 +37,7 @@
   background-color: var(--white-color);
   z-index: var(--z-fixed);
   transition: 0.5s;
-  border: 0px 0px 1px 0px  solid #dee2e6 !important;
+  box-shadow: 0.15 .15rem .15rem .15rem;
 }
 
 .header_toggle {
@@ -45,7 +45,7 @@
   font-size: 1.5rem;
   transition: 0.5s;
   cursor: pointer;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .header_img {
@@ -64,6 +64,10 @@
 
 .header-link{
   cursor: pointer;
+}
+
+.top-bar-search{
+  margin-left: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -106,6 +110,6 @@
   .header {
     height: calc(var(--header-height));
     padding: 0 2rem 0 0;
-    border: 0px 0px 1px 0px  solid #dee2e6 !important;
+    border: 0px 0px 2px 0px  solid #dee2e6 !important;
   }
 }

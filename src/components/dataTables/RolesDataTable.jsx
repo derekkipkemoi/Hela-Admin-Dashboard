@@ -32,7 +32,7 @@ const columns = [
 ];
 
 function createData(permissionName, permissionDescription, permissionGroup) {
-  return {permissionName, permissionDescription, permissionGroup };
+  return { permissionName, permissionDescription, permissionGroup };
 }
 
 // for (let r = 0; r < 40; r++) {
@@ -170,9 +170,9 @@ class RolesDataTable extends Component {
   };
 
   render() {
-    let data = this.state.data
+    let data = this.state.data;
     return (
-      <div className="card-datatable mt-2">
+      <div className="card-datatable">
         <div className="d-flex justify-content-between mt-2 mb-3">
           <div className="col col-md-3 col-xl-3">
             <div className="actions-search-datatables">
@@ -244,158 +244,162 @@ class RolesDataTable extends Component {
             </div>
           </div>
         </div>
-        <table id="bootstrapDataTable" class="data-table-class table">
-          <thead>
-            <tr className="data-table-head">
-              {this.state.columns.map((column, index) => {
-                return <th key={column.name}>{column.name}</th>;
-              })}
-            </tr>
-          </thead>
-          <tbody>
-            {data
-              .slice(0, this.state.pageSize)
-              .map((dataItem, index) => {
-                return (
-                  <tr className="data-table-body-row">
-                    <td>{dataItem.name} </td>
-                    <td>{dataItem.description}</td>
+        <div className="data-table-class">
+          <table id="bootstrapDataTable" class="table-wrapper table">
+            <thead>
+              <tr className="data-table-head">
+                {this.state.columns.map((column, index) => {
+                  return <th key={column.name}>{column.name}</th>;
+                })}
+              </tr>
+            </thead>
+            {data.length > 0 ? (
+              <tbody>
+                {data.slice(0, this.state.pageSize).map((dataItem, index) => {
+                  return (
+                    <tr className="data-table-body-row">
+                      <td>{dataItem.name} </td>
+                      <td>{dataItem.description}</td>
 
-                    <td style={{ width: "120px" }}>
-                      <Link
-                        data-tip
-                        data-for="viewRole"
-                        className="visibilityicon"
-                        to={{
-                          pathname: "/rolespermissions/viewrole",
-                          state: {
-                            role: dataItem.name,
-                            description: dataItem.description,
-                          },
+                      <td style={{ width: "120px" }}>
+                        <Link
+                          data-tip
+                          data-for="viewRole"
+                          className="visibilityicon"
+                          to={{
+                            pathname: "/rolespermissions/viewrole",
+                            state: {
+                              role: dataItem.name,
+                              description: dataItem.description,
+                            },
+                          }}
+                        >
+                          <Visibility />
+                        </Link>
+                        <ReactTooltip id="viewRole" type="info" effect="solid">
+                          <span>View Role</span>
+                        </ReactTooltip>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            ) : null}
+          </table>
+          <tfooter>
+            <nav className="d-flex flex-end justify-content-between">
+              <div className="m-0">
+                <span className="me-2 table-dropdown-pagesize-text">
+                  Display
+                </span>
+                <div className="btn-group">
+                  <button
+                    className="table-dropdown-pagesize-button  dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {this.state.pageSize}
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(5);
                         }}
                       >
-                        <Visibility />
-                      </Link>
-                      <ReactTooltip id="viewRole" type="info" effect="solid">
-                        <span>View Role</span>
-                      </ReactTooltip>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-        <tfooter>
-          <nav className="d-flex flex-end justify-content-between">
-            <div className="m-0">
-              <span className="me-2 table-dropdown-pagesize-text">Display</span>
-              <div className="btn-group">
-                <button
-                  className="table-dropdown-pagesize-button  dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {this.state.pageSize}
-                </button>
-                <ul class="dropdown-menu">
+                        5
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(10);
+                        }}
+                      >
+                        10
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(25);
+                        }}
+                      >
+                        25
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(50);
+                        }}
+                      >
+                        50
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize("all");
+                        }}
+                      >
+                        All
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="datatable-footer-data">
+                Showing {this.state.initialItemInPage} -{" "}
+                {this.state.totalSizeInPage > this.props.roles.length
+                  ? this.props.roles.length
+                  : this.state.totalSizeInPage}{" "}
+                of {this.props.roles.length}
+              </div>
+              <div>
+                <ul className="pagination d-flex m-0">
+                  <span>
+                    <SkipPrevious
+                      className="pagination-items-periphery"
+                      onClick={(e) => this.changePage(1)}
+                    />
+                  </span>
+                  <span>
+                    <NavigateBefore
+                      className="pagination-increment"
+                      onClick={(e) => this.decrementPage(e)}
+                    />
+                  </span>
+
                   <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(5);
-                      }}
-                    >
-                      5
-                    </a>
+                    <p className="page-link current-page-selected">
+                      {this.state.selectedPage}
+                    </p>
                   </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(10);
-                      }}
-                    >
-                      10
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(25);
-                      }}
-                    >
-                      25
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(50);
-                      }}
-                    >
-                      50
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize("all");
-                      }}
-                    >
-                      All
-                    </a>
-                  </li>
+
+                  <span>
+                    <NavigateNext
+                      className="pagination-increment"
+                      onClick={(e) => this.incrementPage(e)}
+                    />
+                  </span>
+
+                  <span>
+                    <SkipNext
+                      className="pagination-items-periphery"
+                      onClick={(e) => this.changePage(this.state.pageCount)}
+                    />
+                  </span>
                 </ul>
               </div>
-            </div>
-            <div className="datatable-footer-data">
-              Showing {this.state.initialItemInPage} -{" "}
-              {this.state.totalSizeInPage > this.props.roles.length
-                ? this.props.roles.length
-                : this.state.totalSizeInPage}{" "}
-              of {this.props.roles.length}
-            </div>
-            <div>
-              <ul className="pagination d-flex m-0">
-                <span>
-                  <SkipPrevious
-                    className="pagination-items-periphery"
-                    onClick={(e) => this.changePage(1)}
-                  />
-                </span>
-                <span>
-                  <NavigateBefore
-                    className="pagination-increment"
-                    onClick={(e) => this.decrementPage(e)}
-                  />
-                </span>
-
-                <li>
-                  <p className="page-link current-page-selected">
-                    {this.state.selectedPage}
-                  </p>
-                </li>
-
-                <span>
-                  <NavigateNext
-                    className="pagination-increment"
-                    onClick={(e) => this.incrementPage(e)}
-                  />
-                </span>
-
-                <span>
-                  <SkipNext
-                    className="pagination-items-periphery"
-                    onClick={(e) => this.changePage(this.state.pageCount)}
-                  />
-                </span>
-              </ul>
-            </div>
-          </nav>
-        </tfooter>
+            </nav>
+          </tfooter>
+        </div>
       </div>
     );
   }

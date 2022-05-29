@@ -8,17 +8,31 @@ import Topbar from "./topbar/Topbar";
 import { connect } from "react-redux";
 
 class App extends Component {
-  state = {};
+  state = {
+    navBarExpanded: false,
+  };
+  NavBarExpanded = (navBarExpanded) => {
+    this.setState({
+      navBarExpanded: navBarExpanded,
+    });
+  };
   render() {
     return (
       <div>
         {!!this.props.isAuthenticated && !!this.props.jwtToken ? (
-          <Topbar />
+          <Topbar NavBarExpanded={this.NavBarExpanded} />
         ) : null}
         {!!this.props.isAuthenticated && !!this.props.jwtToken ? (
-          <Sidebar />
+          <Sidebar NavBarExpanded={this.state.navBarExpanded} />
         ) : null}
-        <div className={!!this.props.isAuthenticated && !!this.props.jwtToken ? "dashboard-content" : null} id="dashboard-content">
+        <div
+          className={
+            !!this.props.isAuthenticated && !!this.props.jwtToken
+              ? "dashboard-content"
+              : null
+          }
+          id="dashboard-content"
+        >
           {this.props.children}
         </div>
       </div>

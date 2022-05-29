@@ -13,567 +13,497 @@ class TSCRequestsHolder extends Component {
       backgroundColor: "#fff",
     };
 
+    const statTitle = {
+      color: "#1a3353",
+      fontSize: "15px",
+    };
+
+    const statValue = {
+      color: "#1a3353",
+    };
+
     const upwardarrowstyle = {
       color: "#0acf97",
     };
 
+    const footerText = {
+      color: "#72849a",
+    };
+
     return (
       <div className="advance-requests-holder">
-        <div className="row justify-content-md-center">
+        <div>
           <div className="header-reports-holder">TSC Requests</div>
         </div>
 
         <div className="row">
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/alltscrequests")
               }
+              role="button"
             >
-              All TSC Requests
-              <div className="requests-holder-button-value">3213</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) => this.handleClick("/advancerequests/alltscrequests")}
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   All TSC Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/pendingtscrequests")
               }
+              role="button"
             >
-              Pending Requests
-              <div className="requests-holder-button-value">12</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/pendingtscrequests")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Pending Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-4">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/paysliprequiredtsc")
               }
+              role="button"
             >
-              Payslip Required TSC Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/paysliprequiredtsc")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Payslip Required TSC Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/payslipsharedtsc")
               }
+              role="button"
             >
-              Payslip Shared TSC Requests
-              <div className="requests-holder-button-value">23</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/payslipsharedtsc")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Payslip Shared TSC Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) => this.handleClick("/advancerequests/topuptsc")}
+              role="button"
             >
-              Top Ups TSC Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) => this.handleClick("/advancerequests/topuptsc")}
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Top Ups TSC Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) => this.handleClick("/advancerequests/bookedtsc")}
+              role="button"
             >
-              Booked TSC Requests
-              <div className="requests-holder-button-value">1203</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) => this.handleClick("/advancerequests/bookedtsc")}
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Booked TSC Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-4">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/duedeligencetsc")
               }
+              role="button"
             >
-              Due Diligence Advance Requests
-              <div className="requests-holder-button-value">133</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/duedeligencetsc")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Due Diligence Advance Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/declinedfromrequeststsc")
               }
+              role="button"
             >
-              Declined From Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/declinedfromrequeststsc")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Declined From Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-4">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/complianceadvancerequests")
               }
+              role="button"
             >
-              Compliance Advance Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/complianceadvancerequests")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Compliance Advance Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-4">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/pendingdisbursmenttsc")
               }
+              role="button"
             >
-              Pending Disbursement TSC Requests
-              <div
-                className="requests-holder-button-value"
-                onClick={(e) =>
-                  this.handleClick("/advancerequests/pendingrequests")
-                }
-              >
-                123
-              </div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/pendingdisbursmenttsc")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Pending Disbursement TSC Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/approvedtscrequests")
               }
+              role="button"
             >
-              Approved TSC Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/approvedtscrequests")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Approved TSC Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-4">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/tscpendingdeclinedrequests")
               }
+              role="button"
             >
-              TSC Pending Decline Advance Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/tscpendingdeclinedrequests")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   TSC Pending Decline Advance Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) =>
                 this.handleClick("/advancerequests/declinedrequeststsc")
               }
+              role="button"
             >
-              Declined Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) =>
-              this.handleClick("/advancerequests/declinedrequeststsc")
-            }
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   Declined Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
 
-          {/* <div className="col-3">
-            <button
-              className="d-flex requests-holder-button"
+          <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">
+            <div
+              className="card border text-dark p-4"
+              style={cardBackgroundColor}
               onClick={(e) => this.handleClick("/advancerequests/tscsearch")}
+              role="button"
             >
-              TSC Search Requests
-              <div className="requests-holder-button-value">123</div>
-            </button>
-          </div> */}
-
-          <div
-            className="col-md-4 col-sm-6  col-xl-3 col-xxl-3 mb-3"
-            onClick={(e) => this.handleClick("/advancerequests/tscsearch")}
-            role="button"
-          >
-            <div className="card text-dark p-3" style={cardBackgroundColor}>
               <div className="card-content">
-                <div className="text-muted card-title float-start">
+                <div
+                  className="fw-bold card-title float-start"
+                  style={statTitle}
+                >
                   TSC Search Requests
                 </div>
-                <div className="float-end card-icon">
-                  <Link />
-                </div>
+                {/* <div className="float-end card-icon"><People/></div> */}
               </div>
-              <div className="fw-bold fs-4">23</div>
-
-              <div className="pt-3 text-muted">
-                <span className="pe-2 fw-bold" style={upwardarrowstyle}>
+              <div className="d-flex align-items-center">
+                <div className="fw-bold fs-3" style={statValue}>
+                  24,850
+                </div>
+                <span className="ms-2" style={upwardarrowstyle}>
                   <ArrowUpward />
                 </span>
-                <span style={upwardarrowstyle}>5.27%</span>
-                <span className="ms-3">Since last month</span>
+                <span className="fw-bold" style={upwardarrowstyle}>
+                  5.27%
+                </span>
               </div>
+
+              <div style={footerText}>Compare to last year (2020)</div>
             </div>
           </div>
         </div>

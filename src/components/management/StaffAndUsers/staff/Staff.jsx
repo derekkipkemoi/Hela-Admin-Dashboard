@@ -38,8 +38,9 @@ class Users extends Component {
             <Refresh />
           </div>
         </div>
-
+        <div className="all-data-tables-holder ">
         <StaffDataTable />
+        </div>
       </div>
     );
   }

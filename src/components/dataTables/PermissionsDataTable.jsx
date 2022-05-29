@@ -198,7 +198,7 @@ class PermissionsDataTable extends Component {
 
   render() {
     return (
-      <div className="card-datatable mt-2">
+      <div className="card-datatable">
         <div className="d-flex justify-content-between mt-2 mb-3">
           <div className="col col-md-3 col-xl-3">
             <div className="actions-search-datatables">
@@ -270,139 +270,143 @@ class PermissionsDataTable extends Component {
             </div>
           </div>
         </div>
-        <table id="bootstrapDataTable" class="data-table-class table">
-          <thead>
-            <tr className="data-table-head">
-              {this.state.columns.map((column, index) => {
-                return <th key={column.name}>{column.name}</th>;
-              })}
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data
-              .slice(0, this.state.pageSize)
-              .map((dataItem, index) => {
-                return (
-                  <tr className="data-table-body-row">
-                    <td>{dataItem.permissionName} </td>
-                    <td>{dataItem.permissionDescription}</td>
-                    <td>{dataItem.permissionGroup}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-        <tfooter>
-          <nav className="d-flex flex-end justify-content-between">
-            <div className="m-0">
-              <span className="me-2 table-dropdown-pagesize-text">Display</span>
-              <div className="btn-group">
-                <button
-                  className="table-dropdown-pagesize-button  dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {this.state.pageSize}
-                </button>
-                <ul class="dropdown-menu">
+        <div className="data-table-class">
+          <table id="bootstrapDataTable" className="table-wrapper table">
+            <thead>
+              <tr className="data-table-head">
+                {this.state.columns.map((column, index) => {
+                  return <th key={column.name}>{column.name}</th>;
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data
+                .slice(0, this.state.pageSize)
+                .map((dataItem, index) => {
+                  return (
+                    <tr className="data-table-body-row">
+                      <td>{dataItem.permissionName} </td>
+                      <td>{dataItem.permissionDescription}</td>
+                      <td>{dataItem.permissionGroup}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+          <tfooter>
+            <nav className="d-flex flex-end justify-content-between">
+              <div className="m-0">
+                <span className="me-2 table-dropdown-pagesize-text">
+                  Display
+                </span>
+                <div className="btn-group">
+                  <button
+                    className="table-dropdown-pagesize-button  dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {this.state.pageSize}
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(5);
+                        }}
+                      >
+                        5
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(10);
+                        }}
+                      >
+                        10
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(25);
+                        }}
+                      >
+                        25
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(50);
+                        }}
+                      >
+                        50
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize("all");
+                        }}
+                      >
+                        All
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="datatable-footer-data">
+                Showing {this.state.initialItemInPage} -{" "}
+                {this.state.totalSizeInPage > this.props.permissions.length
+                  ? this.props.permissions.length
+                  : this.state.totalSizeInPage}{" "}
+                of {this.props.permissions.length}
+              </div>
+              <div>
+                <ul className="pagination d-flex m-0">
+                  <span>
+                    <SkipPrevious
+                      className="pagination-items-periphery"
+                      onClick={(e) => this.changePage(1)}
+                    />
+                  </span>
+                  <span>
+                    <NavigateBefore
+                      className="pagination-increment"
+                      onClick={(e) => this.decrementPage(e)}
+                    />
+                  </span>
+
                   <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(5);
-                      }}
-                    >
-                      5
-                    </a>
+                    <p className="page-link current-page-selected">
+                      {this.state.selectedPage}
+                    </p>
                   </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(10);
-                      }}
-                    >
-                      10
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(25);
-                      }}
-                    >
-                      25
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(50);
-                      }}
-                    >
-                      50
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize("all");
-                      }}
-                    >
-                      All
-                    </a>
-                  </li>
+
+                  <span>
+                    <NavigateNext
+                      className="pagination-increment"
+                      onClick={(e) => this.incrementPage(e)}
+                    />
+                  </span>
+
+                  <span>
+                    <SkipNext
+                      className="pagination-items-periphery"
+                      onClick={(e) => this.changePage(this.state.pageCount)}
+                    />
+                  </span>
                 </ul>
               </div>
-            </div>
-            <div className="datatable-footer-data">
-              Showing {this.state.initialItemInPage} -{" "}
-              {this.state.totalSizeInPage > this.props.permissions.length
-                ? this.props.permissions.length
-                : this.state.totalSizeInPage}{" "}
-              of {this.props.permissions.length}
-            </div>
-            <div>
-              <ul className="pagination d-flex m-0">
-                <span>
-                  <SkipPrevious
-                    className="pagination-items-periphery"
-                    onClick={(e) => this.changePage(1)}
-                  />
-                </span>
-                <span>
-                  <NavigateBefore
-                    className="pagination-increment"
-                    onClick={(e) => this.decrementPage(e)}
-                  />
-                </span>
-
-                <li>
-                  <p className="page-link current-page-selected">
-                    {this.state.selectedPage}
-                  </p>
-                </li>
-
-                <span>
-                  <NavigateNext
-                    className="pagination-increment"
-                    onClick={(e) => this.incrementPage(e)}
-                  />
-                </span>
-
-                <span>
-                  <SkipNext
-                    className="pagination-items-periphery"
-                    onClick={(e) => this.changePage(this.state.pageCount)}
-                  />
-                </span>
-              </ul>
-            </div>
-          </nav>
-        </tfooter>
+            </nav>
+          </tfooter>
+        </div>
 
         {/* role-modal */}
         <div
@@ -621,10 +625,21 @@ function mapStateToProps(state) {
     state.userRolesAndPermissions.permissionsList
   );
 
+  function createData(permissionName, permissionDescription, permissionGroup) {
+    return { permissionName, permissionDescription, permissionGroup };
+  }
+
   for (let x = 0; x < permissionsArrayed.length; x++) {
+    let permissionGroupName = permissionsArrayed[x][0];
     let arrayedSub = Object.entries(permissionsArrayed[x][1]);
     for (let y = 0; y < arrayedSub.length; y++) {
-      permissionList.push(arrayedSub[y]);
+      let permissionName = arrayedSub[y][0];
+      let permissionDescription = arrayedSub[y][1];
+      permissionList[y] = createData(
+        permissionName,
+        permissionDescription,
+        permissionGroupName
+      );
     }
   }
   return {

@@ -21,7 +21,7 @@
     background-color: #fff;
     color: #7c992c;
     border-radius: 5px;
-    border:1px solid #7c992c;
+    border:1px solid var(--border-color);
     padding: 0px 10px 0px 10px;
     cursor: pointer;
 }
@@ -30,7 +30,7 @@
     background-color: #7c992c;
     color: #fff;
     border-radius: 5px;
-    border: 1px solid #7c992c;
+    border: 1px solid var(--border-color);
     padding: 0px 10px 0px 10px;
     margin-right: 10px;
 }
@@ -39,7 +39,7 @@
     background-color: #fff;
     color: #7c992c;
     border-radius: 5px;
-    border:1px solid #7c992c;
+    border:1px solid var(--border-color);
     padding: 0px 10px 0px 10px;
     cursor: pointer;
     margin-right: 10px;
@@ -64,7 +64,7 @@
     background-color: #fff;
     color: #7c992c;
     border-radius: 5px;
-    border:1px solid #7c992c;
+    border:1px solid var(--border-color);
     padding: 0px 10px 0px 10px;
     cursor: pointer;
     margin-right: 10px;

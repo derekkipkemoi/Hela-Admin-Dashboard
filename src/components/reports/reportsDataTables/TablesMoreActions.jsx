@@ -30,7 +30,7 @@ class TablesMoreActions extends Component {
           <MoreHoriz />
         </div>
         <div
-          class="dropdown-menu dropdown-menu-dark"
+          class="dropdown-menu"
           aria-labelledby="dropdownMenuButton2"
         >
             

@@ -19,6 +19,13 @@
   border-radius: 4px 4px 4px 4px;
 }
 
+.all-data-tables-holder {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+}
+
 .pendingicon {
   width: 40px;
   height: 40px;
@@ -133,27 +140,40 @@
 }
 
 .pagination-increment {
-  background-color: var(--green-color);
-  color: var(--white-color);
+  color: var(--gray-color);
   border-radius: 20px;
   margin: 0px 20px 0px 20px;
   padding: 5px;
   cursor: pointer;
+  border: 1px solid var(--gray-color);
 }
 
 .current-page-selected {
-  background-color: var(--yellow-color);
+  border: 1px solid var(--gray-color);
   border-radius: 40px;
+  color: var(--table-color);
+  padding: 5px 12px 5px 12px;
+  background-color: var(--green-color);
   color: var(--white-color);
+  font-weight: bolder;
+}
+
+.current-page-selected:hover {
+  border: 1px solid var(--gray-color);
+  border-radius: 40px;
+  color: var(--table-color);
+  padding: 5px 12px 5px 12px;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  font-weight: bolder;
 }
 
 .pagination-items-periphery {
-  background-color: var(--gray-color);
-  color: var(--white-color);
   border-radius: 20px;
   margin: 0px 10px 0px 10px;
   padding: 2px;
   cursor: pointer;
+  border: 1px solid var(--gray-color);
 }
 
 .table-dropdown-pagesize-button {
@@ -168,14 +188,14 @@
   margin-bottom: 5px;
   border-radius: 5px;
   padding: 10px 10px 10px 10px;
-  color: var(--gray-color);
+  color: var(--table-color);
   font-weight: bold;
 }
 
 .card-datatable {
   background-color: var(--white-color);
   border-radius: 5px;
-  padding: 10px 10px 5px 10px;
+  padding: 10px;
 }
 
 .datatable-footer-data {
@@ -184,15 +204,19 @@
 }
 
 .data-table-class {
+  padding: 2px;
+  border-radius: 10px;
 }
 
 .data-table-head {
   color: var(--table-color);
-  font-weight: bold;
+  font-size: 14px;
+  background-color: var(--main-background-color);
 }
 
 .data-table-body-row {
-  color: var(--table-color) !important;
+  color: var(--table-text-color) !important;
+  font-size: 15px;
   height: 45px;
 }
 
@@ -200,12 +224,13 @@
   display: flex;
   align-items: center;
   background-color: var(--main-background-color);
-  border-radius: 30px;
-  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  margin: 0;
 }
 
 .actions-search-datatables .input-section {
-  border-radius: 30px;
+  border-radius: 10px;
   border: none;
   background-color: var(--main-background-color);
 }
@@ -214,6 +239,10 @@
   height: 40px;
   width: 40px;
   cursor: pointer;
+}
+
+.table-footer {
+  background-color: black;
 }
 
 .actions-top-icons-datatables img {
@@ -345,4 +374,10 @@
 }
 .user-table-status-locked {
   color: var(--locked-color);
+}
+
+.table-wrapper {
+  max-height: 500px;
+  overflow: auto;
+  display: inline-block;
 }

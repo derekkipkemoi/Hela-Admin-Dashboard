@@ -402,7 +402,8 @@ import {
               </div>
             </div>
           </div>
-          <table id="bootstrapDataTable" className="data-table-class table">
+          <div className="data-table-class">
+          <table id="bootstrapDataTable" className="table-wrapper table">
             <thead>
               <tr className="data-table-head">
                 {this.state.columns.map((column, index) => {
@@ -549,6 +550,7 @@ import {
               </div>
             </nav>
           </tfooter>
+          </div>
   
           {/* role-modal */}
   

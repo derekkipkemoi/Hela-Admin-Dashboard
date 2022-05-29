@@ -29,48 +29,19 @@ class Users extends Component {
         <div className="col action-section">
           <div className="actions-name">Users</div>
 
-          {/* <div className="actions-search">
-            <Search className="ms-2" />
-            <input
-              type="text"
-              className="input-section form-control shadow-none"
-              onChange={this.onSearchMessages}
-              placeholder="Search"
-            />
-          </div> */}
-          <Link
-              type="button"
-              class="btn action-button"
-              to={"users/adduser"}
-            >
-              <Add />
-              User
-            </Link>
+          <Link type="button" class="btn action-button" to={"users/adduser"}>
+            <Add />
+            User
+          </Link>
         </div>
         <div className="col tabs-section">
-          {/* <div
-            className={
-              this.state.showStaff ? "btn btn-tab-selected" : "btn btn-tab"
-            }
-            onClick={this.showStaff}
-          >
-            Staff
-          </div> */}
-          {/* <div
-            className={
-              this.state.showStaff ? "btn btn-tab" : "btn btn-tab-selected"
-            }
-            onClick={this.showUsers}
-          >
-            Users
-          </div> */}
-
           <div className="refresh-management-button">
             <Refresh />
           </div>
         </div>
-
-        <UsersDataTable />
+        <div className="all-data-tables-holder ">
+          <UsersDataTable />
+        </div>
       </div>
     );
   }

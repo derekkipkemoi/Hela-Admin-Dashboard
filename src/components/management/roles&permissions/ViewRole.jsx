@@ -54,7 +54,7 @@ class ViewRole extends Component {
     console.log("Description", permissionsDescriptions);
 
     return (
-      <div className="row add-section">
+      <div className="row add-section ms-2">
         <div className="fw-bold">Management</div>
         <div className="col d-flex">
           <div className="add-action">

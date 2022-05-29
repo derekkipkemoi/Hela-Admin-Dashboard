@@ -24,7 +24,9 @@
 }
 
 .active {
+  background-color: var(--yellow-shade);
   color: var(--green-color);
+  border-radius: 0px 10px 10px 0px;
 }
 
 .nav_list {
@@ -40,33 +42,21 @@
   position: absolute;
   left: 0;
   width: 2.5px;
-  height: 32px;
+  height: 40px;
   background-color: var(--green-color);
 }
 
-.sub-link-arrow {
-  /* color: var(--white-color); */
-}
-
-.sub-link-name {
-  margin-left: 10px;
-  /* color: var(--white-color); */
-}
-
-.active-sublink .sub-link-arrow .sub-link-name {
+.sub-link-name:hover {
   color: var(--green-color);
 }
 
-.active-sublink-name {
-  color: var(--white-color);
+.sub-link {
+  color: var(--nav-item-color);
 }
 
-.navs {
-  width: 250px;
-  height: 150px;
-  background: #eee;
-  padding: 15px;
-  margin-top: 15px;
+.sub-link-name {
+  margin-left: 65px;
+  font-weight: 600;
 }
 
 .navs.show {
@@ -75,6 +65,26 @@
 }
 
 .nav_name {
+  font-size: 14px;
   font-weight: bold;
-  font-size: small;
 }
+
+.card-sidebar-tooltip{
+  background-color: var(--white-color);
+  padding: 5px;
+}
+
+.nav_carret{
+  -ms-transform:rotate(90deg);     /* Internet Explorer 9 */
+  -webkit-transform:rotate(90deg); /* Chrome, Safari, Opera */
+  transform:rotate(90deg);  
+}
+
+
+
+/* .side-bar-icon{
+  width: 20px;
+  height: 20px;
+} */
+
+

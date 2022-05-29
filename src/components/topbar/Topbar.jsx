@@ -34,6 +34,18 @@ class Topbar extends Component {
       headerToggle.classList.toggle("bx-x");
       navBar.classList.toggle("show-side-nav");
     }
+
+    if (navBar.classList.contains("show-side-nav")) {
+      this.props.NavBarExpanded(true);
+    } else {
+      this.props.NavBarExpanded(false);
+    }
+
+    for (let menuItem = 0; menuItem < 15; menuItem++) {
+      const newElement = document.getElementById(menuItem);
+      newElement.classList.remove("nav-link-item");
+    }
+
   };
 
   logOut = () => {
@@ -44,7 +56,7 @@ class Topbar extends Component {
   };
   render() {
     return (
-      <header className="header" id="header">
+      <header className="shadow-sm header" id="header">
         <div className="d-flex align-items-center">
           <Link to={"/"} className="nav_logo">
             <img src={require("../assets/images/logo2.jpg")} alt="" />
@@ -56,19 +68,20 @@ class Topbar extends Component {
           >
             <Menu />
           </div>
-        </div>
 
-        <div className="col col-md-3 col-xl-3">
-          <div className="actions-search-datatables">
-            <Search className="ms-2" />
-            <input
-              type="text"
-              className="input-section form-control shadow-none"
-              onChange={this.onSearchMessages}
-              placeholder="Search"
-            />
+          <div className="top-bar-search">
+            <div className="actions-search-datatables">
+              <Search className="ms-2" />
+              <input
+                type="text"
+                className="input-section form-control shadow-none"
+                onChange={this.onSearchMessages}
+                placeholder="Search"
+              />
+            </div>
           </div>
         </div>
+
         <div className="header-icons">
           <NotificationsNone />
         </div>

@@ -58,17 +58,13 @@ class RolesAndPermissions extends Component {
         </div>
         <div className="col tabs-section">
           <div
-            className={
-              this.state.showRoles ? "btn-tab-selected" : "btn-tab"
-            }
+            className={this.state.showRoles ? "btn-tab-selected" : "btn-tab"}
             onClick={this.showRoles}
           >
             Roles
           </div>
           <div
-            className={
-              this.state.showRoles ? "btn-tab" : "btn-tab-selected"
-            }
+            className={this.state.showRoles ? "btn-tab" : "btn-tab-selected"}
             onClick={this.showPermissions}
           >
             Permissions
@@ -78,7 +74,9 @@ class RolesAndPermissions extends Component {
             <Refresh />
           </div>
         </div>
-        {this.state.showRoles ? <RolesDataTable /> : <PermissionsDataTable />}
+        <div className="all-data-tables-holder ">
+          {this.state.showRoles ? <RolesDataTable /> : <PermissionsDataTable />}
+        </div>
       </div>
     );
   }

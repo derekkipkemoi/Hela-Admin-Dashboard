@@ -1,312 +1,135 @@
-.message-section {
+.messages-holder {
   display: flex;
-}
-.list-message-cards {
-  max-height: 620px;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-.message-left-section {
-  max-height: 690px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  border-radius: 2px 2px 2px 2px;
+  flex-direction: row;
 }
 
-.message-right-section {
-  /* position: relative; */
-  padding: 1rem 1rem 2rem 1rem;
-  margin-left: 0.2rem;
-  background-color: #fff;
-  border-radius: 0px 5px 5px 0px;
-}
-
-.left-search-section {
-  position: relative;
-  border-radius: 5px;
-  margin: 0px 0px 10px 0px;
-  background-color: var(--main-background-color);
-  display: flex;
-}
-
-.message-left-input-section {
-  background-color: var(--main-background-color);
-  border-radius: 5px 5px 5px 5px;
-  margin: 5px;
-  border: none;
-}
-
-.message-left-icon-search-section {
-  padding: 0.9rem 0rem 0rem 0.9rem;
-  color: #000;
-}
-
-.left-section-message-card {
-  cursor: pointer;
-  color: #6c757d;
-  font-size: 14px;
-}
-
-.left-section-message-card-checked {
-  color: #98a6ad;
-  background-color: var(--main-background-color);
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.message-left-top-icons {
-  background-color: var(--yellow-color);
-  height: 50px;
-  width: 50px;
-  color: #fff;
-  border: 1px solid --yellow-color;
-  border-radius: 5px;
-  padding: 8px 15px 8px 15px;
-}
-.message-left-top-icons:hover {
-  background-color: var(--main-background-color);
-  height: 50px;
-  width: 50px;
-  color: var(--yellow-color);
-  border-radius: 5px;
-  cursor: pointer;
-  border: 1px solid var(--yellow-color);
-  padding: 8px 15px 8px 15px;
-}
-
-.top-icons-section {
-  margin-top: 10px;
-}
-
-.chat-section {
-  height: 585px;
-  overflow: auto;
+.card-messages-nav {
   background-color: var(--white-color);
-  padding: 5px;
-  border-radius: 0px;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-end;
-}
-
-.typeMessageSection {
-  width: 100%;
-  padding: 10px 0px 0px 0px;
-  background-color: #fff;
-  border-radius: 0px 0px 5px 5px;
-}
-
-.typeMessageSection .form-control {
-  background-color: var(--main-background-color);
-}
-
-.typeMessageSection input {
-  width: 100%;
-}
-
-.chatMessageCard {
-  margin: 15px 10px 15px 25px;
-  background-color: #fef5e4;
-  border-radius: 20px 0px 20px 20px;
-}
-
-.card-body-message-right {
-  margin: 0px 15px 15px 25px;
-  color: var(--gray-color);
-  font-size: small;
-}
-
-.chatMessageCard .card-title {
-  padding: 0px 5px 2px 2px;
-  color: var(--gray-color);
-}
-
-.chatMessageCard .card-body {
-  padding: 2px 50px 2px 5px;
-  color: black;
-}
-
-.chat-card-date {
-  font-size: smaller;
-  color: gray;
-}
-
-.chat-card-sender {
-  margin: 10px 15px 0px 0px;
-  font-weight: bold;
-  font-size: small;
-  color: gray;
-}
-
-.chat-section-current-user-section-image {
-  background-color: #fff;
-  border: solid var(--main-background-color) 5px;
-  width: 40px;
-  height: 40px;
-  border-radius: 30px;
-  margin-bottom: 10px;
-}
-
-.message-card-user-icon {
-  width: 60px;
-  height: 60px;
-  /* margin-bottom: 10px; */
-}
-
-.message-card-user-icon img {
-  width: 50px;
-  height: 50px;
-  background-color: var(--gray-color);
-  border-radius: 30px;
-  border: none;
-  outline: none;
-  /* margin-bottom: 10px; */
-}
-
-.message-chat-user-icon {
-  width: 60px;
-  height: 60px;
-  margin: 17px 5px 0px 3px;
-  /* margin-bottom: 10px; */
-}
-
-.message-chat-user-icon img {
-  width: 50px;
-  height: 50px;
-  background-color: var(--gray-color);
-  border-radius: 15px 15px 15px 15px;
-  border: none;
-  /* margin-bottom: 10px; */
-}
-
-#modal-nav {
-  max-width: 100vw;
-  margin: 0;
-  height: 100vh;
-}
-
-#modal-nav .modal-content {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.modal {
-  padding: 0 !important;
-}
-@media only screen and (max-width: 768px) {
-  /* .messaging-user-details-section {
-    display: none;
-  } */
-}
-
-.after_modal_appended {
-  position: relative;
-}
-
-.red {
-  background-color: red;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.block {
-  width: 100%;
-  height: 200px;
-}
-
-.modal,
-.modal-backdrop {
-  position: absolute !important;
-}
-
-.preview-chat-image {
-  width: 50%;
-  height: auto;
-}
-
-.modal-info {
-  background-color: var(--main-background-color);
-  margin-bottom: 5px;
+  width: 15rem;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px 0px 0px 10px;
+  text-align: center;
+  border-right: 1px solid var(--border-color);
 }
 
-.single-radio-checkbox {
-  margin-right: 10px;
-}
-
-.user-image-section {
-  margin-top: 30px;
-}
-
-.user-image-section img {
-  padding: 5px;
-  width: 100px;
-  height: 100px;
-  border: 1px solid var(--gray-color);
-  border-radius: 60px;
-}
-
-.user-name-section div {
-  font-size: larger;
-  color: var(--gray-color);
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.user-last-message-section .left {
-  color: var(--gray-color);
-  font-size: 15px;
-}
-
-.user-last-message-section .right {
-  color: var(--gray-color);
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.user-horizontal-line-section {
-  margin: 0px 30px 0px 30px;
-}
-
-.user-bottom-section {
-  color: var(--gray-color);
-  margin-left: 30px;
-  margin-top: 20px;
-}
-
-.current-user {
+.card-messages-list {
   background-color: var(--white-color);
-  height: 685px;
-}
-
-.chat-send-message {
-  background-color: #0acf97;
+  width: 100%;
   padding: 10px;
-  color: var(--white-color);
-  border-radius: 0px 5px 5px 0px;
-}
-
-.card-message {
-  background-color: var(--white-color);
-  border-radius: 5px;
-  padding: 10px 0px 0px 10px;
-}
-
-.modal-message-header {
-  font-weight: bold;
-}
-
-.modal-message-body {
-  color: var(--gray-color);
+  border-radius: 0px 10px 10px 0px;
+  /* width: 10rem; */
 }
 
 .new-message-card {
-  background-color: var(--white-color);
-  padding: 30px;
+  height: 600px;
+  padding: 20px 10px 20px 10px;
+}
+
+.compose-message {
+  background-color: var(--green-color);
+  border-radius: 5px;
+  padding: 7px 0px 7px 0px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.messages-nav {
+  color: var(--nav-item-color);
+  text-align: left;
+  margin: 15px 0px 0px 5px;
+  position: static;
+}
+
+.messages-nav:hover {
+  color: var(--green-color);
+  cursor: pointer;
+}
+
+.messages-nav-text {
+  position: relative;
+  top: 2.5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px 0px 0px 10px;
+  color: var(--text-black-color);
+}
+
+.company-radio-checkbox {
+  background-color: var(--main-background-color);
+  margin: 30px 10px 10px 0px;
+  color: var(--table-color);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.single-radio-checkbox {
+  background-color: var(--main-background-color);
+  margin: 30px 10px 10px 0px;
+  color: var(--table-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.new-message{
+  font-weight: bold;
+  color: var(--table-color);
+}
+
+.alert-warning-message-section{
+  background-color: var(--locked-color);
+  color: var(--white-color);
+  border-radius: 15px;
+  padding: 0px 15px 0px 15px;
+}
+
+.recepients-number-list{
+  background-color: var(--main-background-color);
+  color: var(--text-grey-light);
+  padding: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+.clear-numbers{
+  background-color: var(--locked-color);
+  width: 50px;
+  height: 40px;
+  border-radius: 40px;
+  color: var(--white-color);
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.send-message{
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  margin: 0px 0px 0px 20px;
+  cursor: pointer;
+}
+
+.discard-message{
+  background-color: var(--white-color);
+  color: var(--table-color);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  padding: 10px 20px 10px 20px;
+  margin: 0px 0px 0px 20px;
+  cursor: pointer;
+}
+
+.save-draft{
+  background-color: var(--white-color);
+  color: var(--green-color);
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  margin: 0px 0px 0px 20px;
+  cursor: pointer;
 }
