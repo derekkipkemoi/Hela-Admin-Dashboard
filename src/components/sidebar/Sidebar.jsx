@@ -275,12 +275,6 @@ class SideBar extends Component {
   };
 
   render() {
-    const styles = {
-      largeIcon: {
-        width: 60,
-        height: 60,
-      },
-    };
     const links = navLinks;
     return (
       <div>
@@ -303,7 +297,7 @@ class SideBar extends Component {
                               ? nav.to
                               : null
                           }
-                          className="d-flex nav_link"
+                          className="d-flex nav_lin"
                           key={index}
                           onClick={
                             nav.linkName === "Home" ||
