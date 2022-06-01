@@ -297,7 +297,7 @@ class SideBar extends Component {
                               ? nav.to
                               : null
                           }
-                          className="d-flex nav_lin"
+                          className="d-flex nav_link"
                           key={index}
                           onClick={
                             nav.linkName === "Home" ||
