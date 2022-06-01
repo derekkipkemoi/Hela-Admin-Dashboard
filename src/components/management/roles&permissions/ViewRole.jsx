@@ -1,10 +1,16 @@
-import { ArrowBack, Star } from "@mui/icons-material";
+import { ArrowBack, Done, Star } from "@mui/icons-material";
 import { Link, withRouter } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../actions";
 import "../management.css";
 import PageLoadingSpinner from "../../spinner/PageLoadingSpinner";
+
+const toTitleCase = (str) =>
+  str.replace(
+    /(^\w|\s\w)(\S*)/g,
+    (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase()
+  );
 
 class ViewRole extends Component {
   state = {
@@ -49,37 +55,62 @@ class ViewRole extends Component {
       permissionsDescriptions.push(output);
     }
 
-    console.log("Names", assignedPermissions);
-    console.log("Names", permissionsNames);
-    console.log("Description", permissionsDescriptions);
-
     return (
       <div className="row add-section ms-2">
-        <div className="fw-bold">Management</div>
+        <div className="d-flex justify-content-between">
+          <div className="fw-bold">Management</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/rolespermissions"}>Role And Permissions</Link>
+              </div>
+              <li class="breadcrumb-item " aria-current="page">
+                View Role
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">Role Details</div>
-            <Link
+            {/* <Link
               type="button"
               class="btn action-button"
               to={"/rolespermissions"}
             >
               <ArrowBack />
               Back
-            </Link>
+            </Link> */}
           </div>
         </div>
 
         <div className="card">
           <div class="card-body">
+            <div className="d-flex justify-content-end">
+              <Link
+                className="button-approved"
+                to={{
+                  pathname: "/rolespermissions/updaterole",
+                  state: {
+                    role: this.state.roleName,
+                    description: this.state.description,
+                  },
+                }}
+              >
+                Update
+              </Link>
+            </div>
             <div className="row">
               <div class="col-sm-12 col-md-6 col-xl-6 mb-3">
                 <label class="form-label">
-                  Role Name{" "}
-                  <Star className="text-danger" style={{ fontSize: "12px" }} />
+                  Role Name
                 </label>
                 <input
                   type="text"
+                  disabled="true"
                   className="form-control"
                   placeholder="Type role name"
                   value={this.state.roleName}
@@ -91,6 +122,7 @@ class ViewRole extends Component {
                   className="form-control"
                   placeholder="Does not have role description"
                   rows="3"
+                  disabled="true"
                   value={this.state.roleDescription}
                 ></textarea>
               </div>
@@ -104,16 +136,27 @@ class ViewRole extends Component {
                   {assignedPermissions.map((permission, index) => {
                     return (
                       <div className="mt-3">
-                        <text className="fw-bold permission-header">
-                          {permissionsNames[index]}
+                        <text className="permission-header">
+                          {toTitleCase(
+                            permissionsNames[index].replace(/_/g, " ")
+                          )}
                         </text>
-                        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
+                        <div class="row">
                           {permissionsDescriptions[index].map(
                             (permissionDescription, index1) => {
                               return (
-                                <div class="col">
-                                  <div class="p-1 border mt-0 permission-description text-d bg-dark">
-                                    {permissionDescription.value}
+                                <div class="d-flex col-3">
+                                  <Done style={{ fontSize: 20, color:"#0acf97"}}/>
+                                  <div class="permission-description">
+                                    {permissionDescription.value
+                                      .replace(/-/g, " ")
+                                      .replace(/_/g, " ")
+                                      .charAt(0)
+                                      .toUpperCase() +
+                                      permissionDescription.value
+                                        .replace(/-/g, " ")
+                                        .replace(/_/g, " ")
+                                        .slice(1)}
                                   </div>
                                 </div>
                               );

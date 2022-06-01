@@ -8,6 +8,7 @@ import {
   ROLES,
   ROLE_DETAILS,
   PERMISSION_DETAILS,
+  UPDATE_ROLE
 } from "./actionTypes";
 
 const baseUrl = "https://helapesa.com";
@@ -211,6 +212,7 @@ export const getPermissions = () => {
         baseUrl + "/admin-api/get-roles-and-permissions",
         config
       );
+      // console.log("Response", res.data)
       switch (res.data.status) {
         case 200:
           dispatch({
@@ -237,3 +239,93 @@ export const getPermissions = () => {
     }
   };
 };
+
+
+
+export const updateRole = (roleObject) => {
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem("JWT_TOKEN");
+      const userPhone = localStorage.getItem("PHONE");
+      console.log(roleObject, userPhone, token)
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          phone: userPhone,
+        },
+      };
+      const res = await axios.put(
+        baseUrl + "/admin-api/update-role-permissions" + roleObject,
+        config
+      );
+      console.log("Response", res.data)
+      switch (res.data.status) {
+        case 200:
+          dispatch({
+            type: UPDATE_ROLE,
+            payLoad: {
+              message: res.data.message,
+            },
+          });
+      }
+    } catch (error) {
+      if (error.response.status == 401) {
+        localStorage.removeItem("JWT_TOKEN");
+        localStorage.removeItem("PHONE");
+        dispatch({
+          type: AUTH_ERROR,
+          payLoad: {
+            isAuthenticated: false,
+            token: null,
+            message: "",
+          },
+        });
+      }
+    }
+  };
+};
+
+
+export const createNewRole = (roleObject) => {
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem("JWT_TOKEN");
+      const userPhone = localStorage.getItem("PHONE");
+      console.log(roleObject, userPhone, token)
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          phone: userPhone,
+        },
+      };
+      const res = await axios.post(
+        baseUrl + "/admin-api/create-role-permissions" + roleObject,
+        config
+      );
+      console.log("Response", res.data)
+      switch (res.data.status) {
+        case 200:
+          dispatch({
+            type: UPDATE_ROLE,
+            payLoad: {
+              message: res.data.message,
+            },
+          });
+      }
+    } catch (error) {
+      if (error.response.status == 401) {
+        localStorage.removeItem("JWT_TOKEN");
+        localStorage.removeItem("PHONE");
+        dispatch({
+          type: AUTH_ERROR,
+          payLoad: {
+            isAuthenticated: false,
+            token: null,
+            message: "",
+          },
+        });
+      }
+    }
+  };
+};
+

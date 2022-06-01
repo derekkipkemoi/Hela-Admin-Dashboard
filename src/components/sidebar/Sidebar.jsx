@@ -14,32 +14,27 @@ import {
   Share,
   Forum,
   AlignVerticalTop,
-  ArrowDropDown,
-  ArrowRightAlt,
-  KeyboardArrowDown,
   KeyboardArrowRight,
 } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
-import Button from "@mui/material/Button";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
 
 const navLinks = [
   {
     linkName: "Home",
     to: "/",
-    linkIcon: <Home style={{ fontSize: 23 }} />,
+    linkIcon: <Home style={{ fontSize: 20 }} />,
     subLink: [],
   },
   {
     linkName: "Messages",
     to: "/messages",
-    linkIcon: <Forum style={{ fontSize: 23 }} />,
+    linkIcon: <Forum style={{ fontSize: 20 }} />,
     subLink: [],
   },
   {
     linkName: "Reports",
-    linkIcon: <Assessment style={{ fontSize: 23 }} />,
+    linkIcon: <Assessment style={{ fontSize: 20 }} />,
     subLink: [
       {
         linkName: "Advance Requests",
@@ -59,12 +54,28 @@ const navLinks = [
         linkName: "M-PESA",
         to: "/m_pesa",
       },
+      {
+        linkName: "Mobiloans",
+        to: "/mobiloans",
+      },
+      {
+        linkName: "Loan Requests",
+        to: "/loanrequests",
+      },
+      {
+        linkName: "Salary",
+        to: "/salary",
+      },
+      {
+        linkName: "Datasheets",
+        to: "/datasheets",
+      },
     ],
   },
   {
     linkName: "Management",
     to: "/rolespermissions",
-    linkIcon: <AdminPanelSettings style={{ fontSize: 23 }} />,
+    linkIcon: <AdminPanelSettings style={{ fontSize: 20 }} />,
     subLink: [
       {
         linkName: "Roles and Permissions",
@@ -83,21 +94,16 @@ const navLinks = [
   {
     linkName: "Agencies & Companies",
     to: "/",
-    linkIcon: <Business style={{ fontSize: 23 }} />,
+    linkIcon: <Business style={{ fontSize: 20 }} />,
     subLink: [
       {
-        linkName: "Messages",
-        to: "/messages",
+        linkName: "Agencies",
+        to: "/agencies",
         linkIcon: <Message style={{ fontSize: 20 }} />,
       },
       {
-        linkName: "Messages",
-        to: "/messages",
-        linkIcon: <Message style={{ fontSize: 20 }} />,
-      },
-      {
-        linkName: "Messages",
-        to: "/messages",
+        linkName: "Companies",
+        to: "/companies",
         linkIcon: <Message style={{ fontSize: 20 }} />,
       },
     ],
@@ -162,48 +168,17 @@ const navLinks = [
   },
   {
     linkName: "Reminders",
-    to: "/messages",
+    to: "/reminders",
     linkIcon: <NotificationsNone style={{ fontSize: 23 }} />,
-    subLink: [
-      {
-        linkName: "Messages",
-        to: "/messages",
-        linkIcon: <Message />,
-      },
-      {
-        linkName: "Messages",
-        to: "/messages",
-        linkIcon: <Message />,
-      },
-      {
-        linkName: "Messages",
-        to: "/messages",
-        linkIcon: <Message />,
-      },
-    ],
+    subLink: [],
   },
-  {
-    linkName: "Top Ups",
-    to: "/",
-    linkIcon: <AlignVerticalTop style={{ fontSize: 23 }} />,
-    subLink: [
-      {
-        linkName: "Messages",
-        to: "/messages",
-        linkIcon: <Message />,
-      },
-      {
-        linkName: "Messages",
-        to: "/messages",
-        linkIcon: <Message />,
-      },
-      {
-        linkName: "Messages",
-        to: "/messages",
-        linkIcon: <Message />,
-      },
-    ],
-  },
+  // {
+  //   linkName: "Top Ups",
+  //   to: "/topups",
+  //   linkIcon: <AlignVerticalTop style={{ fontSize: 23 }} />,
+  //   subLink: [
+  //   ],
+  // },
 ];
 
 const HtmlTooltip = styled(({ className, ...props }) => (
@@ -323,7 +298,8 @@ class SideBar extends Component {
                         <Link
                           to={
                             nav.linkName === "Home" ||
-                            nav.linkName === "Messages"
+                            nav.linkName === "Messages" ||
+                            nav.linkName === "Reminders"
                               ? nav.to
                               : null
                           }
@@ -331,7 +307,8 @@ class SideBar extends Component {
                           key={index}
                           onClick={
                             nav.linkName === "Home" ||
-                            nav.linkName === "Messages"
+                            nav.linkName === "Messages" ||
+                            nav.linkName === "Reminders"
                               ? (e) => this.navItemHomeClicked(index)
                               : (e) => this.navItemClicked(index)
                           }

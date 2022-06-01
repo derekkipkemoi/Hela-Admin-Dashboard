@@ -68,7 +68,28 @@ class AllTSCRequests extends Component {
     };
     return (
       <div>
-        <div className="fw-bold">Reports</div>
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Reports</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/refunds"}>Refunds</Link>
+              </div>
+
+              <li class="breadcrumb-item " aria-current="page">
+                {this.props.location.pathname === "/refunds/refundsrequests" ? (
+                  <span>Refunds Requests</span>
+                ) : null}
+                {this.props.location.pathname === "/refunds/activerequests" ? (
+                  <span>Activated Refunds</span>
+                ) : null}
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">
@@ -79,10 +100,6 @@ class AllTSCRequests extends Component {
                 <span>Activated Refunds</span>
               ) : null}
             </div>
-            <Link type="button" class="btn action-button" to={"/refunds"}>
-              <ArrowBack />
-              Back
-            </Link>
           </div>
         </div>
         <div className="all-advance-requests-holder">

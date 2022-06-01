@@ -32,14 +32,29 @@ class ViewUser extends Component {
   render() {
     return (
       <div className="row add-section">
-        <div className="fw-bold">Management</div>
+        <div className="d-flex justify-content-between">
+          <div className="fw-bold">Management</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/users"}>Users</Link>
+              </div>
+              <li class="breadcrumb-item " aria-current="page">
+                View User
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">User Details</div>
-            <Link type="button" class="btn action-button" to={"/users"}>
+            {/* <Link type="button" class="btn action-button" to={"/users"}>
               <ArrowBack />
               Back
-            </Link>
+            </Link> */}
           </div>
         </div>
 

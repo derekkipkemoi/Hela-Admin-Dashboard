@@ -24,6 +24,7 @@
   border-radius: 10px;
   background-color: var(--white-color);
   border: 1px solid var(--border-color);
+  margin-top: 10px;
 }
 
 .pendingicon {
@@ -187,7 +188,7 @@
 .table-dropdown-pagesize-text {
   margin-bottom: 5px;
   border-radius: 5px;
-  padding: 10px 10px 10px 10px;
+  padding: 5px 10px 5px 10px;
   color: var(--table-color);
   font-weight: bold;
 }
@@ -376,8 +377,22 @@
   color: var(--locked-color);
 }
 
-.table-wrapper {
+/* .table-wrapper {
   max-height: 500px;
   overflow: auto;
   display: inline-block;
+} */
+
+/* table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: var(--main-background-color);
+  border: 1px solid var(--border-color);
 }
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+} */
+

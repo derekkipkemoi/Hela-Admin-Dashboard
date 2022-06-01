@@ -1,4 +1,10 @@
-import { USER_ROLES, ROLES, ROLE_DETAILS, PERMISSION_DETAILS } from "../actions/actionTypes";
+import {
+  USER_ROLES,
+  ROLES,
+  ROLE_DETAILS,
+  PERMISSION_DETAILS,
+  UPDATE_ROLE,
+} from "../actions/actionTypes";
 
 const DEFAULT_STATE = {
   role: "",
@@ -34,11 +40,17 @@ export default (state = DEFAULT_STATE, action) => {
       };
 
     case PERMISSION_DETAILS:
-      return{
+      return {
         ...state,
         permissionsList: action.payLoad.permissionsList,
-        message: action.payLoad.message
-      }
+        message: action.payLoad.message,
+      };
+
+    case UPDATE_ROLE:
+      return {
+        ...state,
+        message: action.payLoad.message,
+      };
 
     default:
       return state;

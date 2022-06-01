@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import Agentcommissionrequestreport from "./Agentcommissionrequestreport";
 import Agentreferralpromotionsreport from "./Agentreferralpromotionsreport";
 import Agentrewardcommissionreport from "./Agentrewardcommissionreport";
@@ -67,7 +67,45 @@ class AllRefferals extends Component {
     };
     return (
       <div>
-        <div className="fw-bold">Refferals</div>
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Refferals</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link >Referrals</Link>
+              </div>
+
+              <li class="breadcrumb-item " aria-current="page">
+              {this.props.location.pathname === "/refferals" ? (
+                <span>Refferals</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/refferals/referralrewardcommissions" ? (
+                <span>Refferal Reward Commissions</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/refferals/redeemcommissionrequests" ? (
+                <span>Redeem Commission Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/refferals/agentreferralpromotionsreport" ? (
+                <span>Agent Referral Promotions Report</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/refferals/agentrewardcommissionreport" ? (
+                <span>Agent Reward Commission Report</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/refferals/agentcommissionrequestreport" ? (
+                <span>Agent Commission Request Report</span>
+              ) : null}
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">

@@ -29,14 +29,29 @@ class ViewStaff extends Component {
   render() {
     return (
       <div className="row add-section">
-        <div className="fw-bold">Management</div>
+         <div className="d-flex justify-content-between">
+          <div className="fw-bold">Management</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/staff"}>Staff</Link>
+              </div>
+              <li class="breadcrumb-item " aria-current="page">
+                View Staff
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">Staff Details</div>
-            <Link type="button" class="btn action-button" to={"/staff"}>
+            {/* <Link type="button" class="btn action-button" to={"/staff"}>
               <ArrowBack />
               Back
-            </Link>
+            </Link> */}
           </div>
         </div>
 

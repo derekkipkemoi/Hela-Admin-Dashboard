@@ -23,6 +23,7 @@ import ReceivedfromPayrollDataTables from "../reportsDataTables/ReceivedfromPayr
 import RevisedAbilityDataTables from "../reportsDataTables/RevisedAbilityDataTables";
 import StopOrdersDataTables from "../reportsDataTables/StopOrdersDataTables";
 import ComplianceDataTables from "../reportsDataTables/ComplianceDataTables";
+import TopUpsDataTables from "../reportsDataTables/TopUpsDataTables";
 const companiesOptions = appData.companies;
 
 class AllAdvanceRequests extends Component {
@@ -84,7 +85,101 @@ class AllAdvanceRequests extends Component {
     };
     return (
       <div>
-        <div className="fw-bold">Reports</div>
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Advance Requests</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/advancerequests"}>Advance Requests</Link>
+              </div>
+              <li class="breadcrumb-item " aria-current="page">
+                {this.props.location.pathname ===
+                "/advancerequests/alladvancerequests" ? (
+                  <span>All Advance Requests</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/pendingrequests" ? (
+                  <span>Pending Requests</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/pendingpayslipshared" ? (
+                  <span>Pending Payslip Shared</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/payslipshared" ? (
+                  <span>Payslip Shared</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/payrolldddpending" ? (
+                  <span>Payroll DD-Pending</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/payrolldddone" ? (
+                  <span>Payroll DD-Done</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/receivedfrompayroll" ? (
+                  <span>Received from Payroll</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/revisedability" ? (
+                  <span>Revised Ability</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/notonpayroll" ? (
+                  <span>Not on Payroll</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/pendingddbooked" ? (
+                  <span>Pending DD-Booked</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/declinedbyclients" ? (
+                  <span>Declined By Clients</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/stoporders" ? (
+                  <span>Stop Orders</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/compliance" ? (
+                  <span>Compliance</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/pendingdisbursment" ? (
+                  <span>Pending Disbursment</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/approvedrequests" ? (
+                  <span>Approved Requests</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/disbursedrequests" ? (
+                  <span>Disbursed Requests</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/pendingdeclinerequests" ? (
+                  <span>Pending Decline Requests</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/declinedrequests" ? (
+                  <span>Declined Requests</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/disbursmenterror" ? (
+                  <span>Disbursment Error</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/advancerequests/topups" ? (
+                  <span>Top Ups</span>
+                ) : null}
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">
@@ -164,15 +259,11 @@ class AllAdvanceRequests extends Component {
               "/advancerequests/disbursmenterror" ? (
                 <span>Disbursment Error</span>
               ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/topups" ? (
+                <span>Top Ups</span>
+              ) : null}
             </div>
-            <Link
-              type="button"
-              class="btn action-button"
-              to={"/advancerequests"}
-            >
-              <ArrowBack />
-              Back
-            </Link>
           </div>
         </div>
         <div className="all-advance-requests-holder">
@@ -245,80 +336,85 @@ class AllAdvanceRequests extends Component {
           </div>
 
           <div>
-          {this.props.location.pathname ===
-          "/advancerequests/alladvancerequests" ? (
-            <AllRequestsDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/pendingrequests" ? (
-            <PendingRequestsDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/pendingpayslipshared" ? (
-            <PendingPayslipSharedDataTables />
-          ) : null}
-          {this.props.location.pathname === "/advancerequests/payslipshared" ? (
-            <PayslipSharedDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/payrolldddpending" ? (
-            <PayrollDDpendingDataTables />
-          ) : null}
-          {this.props.location.pathname === "/advancerequests/payrolldddone" ? (
-            <PayrollDDDoneDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/receivedfrompayroll" ? (
-            <ReceivedfromPayrollDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/revisedability" ? (
-            <RevisedAbilityDataTables />
-          ) : null}
-          {this.props.location.pathname === "/advancerequests/notonpayroll" ? (
-            <NotonPayrollDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/pendingddbooked" ? (
-            <PendingDDBookedDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/declinedbyclients" ? (
-            <DeclinedByClientsDataTables />
-          ) : null}
-          {this.props.location.pathname === "/advancerequests/stoporders" ? (
-            <StopOrdersDataTables />
-          ) : null}
-          {this.props.location.pathname === "/advancerequests/compliance" ? (
-            <ComplianceDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/pendingdisbursment" ? (
-            <PendingDisbursmentDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/approvedrequests" ? (
-            <ApprovedRequestsDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/disbursedrequests" ? (
-            <DisbursedRequestsDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/pendingdeclinerequests" ? (
-            <PendingDeclineRequestsDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/declinedrequests" ? (
-            <DeclinedRequestsDataTables />
-          ) : null}
-          {this.props.location.pathname ===
-          "/advancerequests/disbursmenterror" ? (
-            <DisbursmentErrorDataTables />
-          ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/alladvancerequests" ? (
+              <AllRequestsDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/pendingrequests" ? (
+              <PendingRequestsDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/pendingpayslipshared" ? (
+              <PendingPayslipSharedDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/payslipshared" ? (
+              <PayslipSharedDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/payrolldddpending" ? (
+              <PayrollDDpendingDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/payrolldddone" ? (
+              <PayrollDDDoneDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/receivedfrompayroll" ? (
+              <ReceivedfromPayrollDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/revisedability" ? (
+              <RevisedAbilityDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/notonpayroll" ? (
+              <NotonPayrollDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/pendingddbooked" ? (
+              <PendingDDBookedDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/declinedbyclients" ? (
+              <DeclinedByClientsDataTables />
+            ) : null}
+            {this.props.location.pathname === "/advancerequests/stoporders" ? (
+              <StopOrdersDataTables />
+            ) : null}
+            {this.props.location.pathname === "/advancerequests/compliance" ? (
+              <ComplianceDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/pendingdisbursment" ? (
+              <PendingDisbursmentDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/approvedrequests" ? (
+              <ApprovedRequestsDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/disbursedrequests" ? (
+              <DisbursedRequestsDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/pendingdeclinerequests" ? (
+              <PendingDeclineRequestsDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/declinedrequests" ? (
+              <DeclinedRequestsDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/disbursmenterror" ? (
+              <DisbursmentErrorDataTables />
+            ) : null}
+            {this.props.location.pathname ===
+            "/advancerequests/topups" ? (
+              <TopUpsDataTables />
+            ) : null}
           </div>
-
-          
         </div>
       </div>
     );

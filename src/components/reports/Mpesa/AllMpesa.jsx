@@ -68,7 +68,28 @@ class AllMpesa extends Component {
     };
     return (
       <div>
-        <div className="fw-bold">Reports</div>
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Reports</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/m_pesa"}>M-PESA</Link>
+              </div>
+
+              <li class="breadcrumb-item " aria-current="page">
+                {this.props.location.pathname === "/m_pesa/disbursement" ? (
+                  <span>Disbursement</span>
+                ) : null}
+                {this.props.location.pathname === "/m_pesa/paymentreceived" ? (
+                  <span>Payment Received</span>
+                ) : null}
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">
@@ -79,10 +100,6 @@ class AllMpesa extends Component {
                 <span>Payment Received</span>
               ) : null}
             </div>
-            <Link type="button" class="btn action-button" to={"/m_pesa"}>
-              <ArrowBack />
-              Back
-            </Link>
           </div>
         </div>
         <div className="all-advance-requests-holder">

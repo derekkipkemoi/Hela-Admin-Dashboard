@@ -22,6 +22,9 @@ const { faker } = require("@faker-js/faker");
 
 const columns = [
   {
+    name: "#",
+  },
+  {
     name: "Permission Name",
   },
   {
@@ -71,8 +74,8 @@ class PermissionsDataTable extends Component {
     });
   };
 
-  getPermissionsList = () => {
-    this.props.getPermissions();
+  getPermissionsList = async () => {
+    await this.props.getPermissions();
     console.log("Permissions", this.props.permissions, this.props.message);
   };
 
@@ -211,7 +214,7 @@ class PermissionsDataTable extends Component {
               />
             </div>
           </div>
-          <div className="col d-flex justify-content-end col-md-3 col-xl-3">
+          {/* <div className="col d-flex justify-content-end col-md-3 col-xl-3">
             <div className="actions-top-icons-datatables">
               <img
                 data-tip
@@ -268,7 +271,7 @@ class PermissionsDataTable extends Component {
                 <span>Print Messages List</span>
               </ReactTooltip>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="data-table-class">
           <table id="bootstrapDataTable" className="table-wrapper table">
@@ -285,6 +288,7 @@ class PermissionsDataTable extends Component {
                 .map((dataItem, index) => {
                   return (
                     <tr className="data-table-body-row">
+                      <td>{dataItem.permissionNumber} </td>
                       <td>{dataItem.permissionName} </td>
                       <td>{dataItem.permissionDescription}</td>
                       <td>{dataItem.permissionGroup}</td>
@@ -625,8 +629,8 @@ function mapStateToProps(state) {
     state.userRolesAndPermissions.permissionsList
   );
 
-  function createData(permissionName, permissionDescription, permissionGroup) {
-    return { permissionName, permissionDescription, permissionGroup };
+  function createData(permissionNumber, permissionName, permissionDescription, permissionGroup) {
+    return {permissionNumber, permissionName, permissionDescription, permissionGroup };
   }
 
   for (let x = 0; x < permissionsArrayed.length; x++) {
@@ -636,6 +640,7 @@ function mapStateToProps(state) {
       let permissionName = arrayedSub[y][0];
       let permissionDescription = arrayedSub[y][1];
       permissionList[y] = createData(
+        y + 1,
         permissionName,
         permissionDescription,
         permissionGroupName
@@ -644,9 +649,9 @@ function mapStateToProps(state) {
   }
   return {
     permissions: permissionList,
-    permissionsWithGroups: Object.entries(
-      state.userRolesAndPermissions.permissionsList
-    ),
+    // permissionsWithGroups: Object.entries(
+    //   state.userRolesAndPermissions.permissionsList
+    // ),
     message: state.userRolesAndPermissions.message,
   };
 }

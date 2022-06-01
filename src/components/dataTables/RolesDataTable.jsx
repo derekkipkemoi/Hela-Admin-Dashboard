@@ -1,4 +1,5 @@
 import {
+  Edit,
   NavigateBefore,
   NavigateNext,
   Search,
@@ -20,6 +21,9 @@ import "./dataTables.css";
 const { faker } = require("@faker-js/faker");
 
 const columns = [
+  {
+    name: "#",
+  },
   {
     name: "Role Name",
   },
@@ -185,7 +189,7 @@ class RolesDataTable extends Component {
               />
             </div>
           </div>
-          <div className="col d-flex justify-content-end col-md-3 col-xl-3">
+          {/* <div className="col d-flex justify-content-end col-md-3 col-xl-3">
             <div className="actions-top-icons-datatables">
               <img
                 data-tip
@@ -242,10 +246,10 @@ class RolesDataTable extends Component {
                 <span>Print Messages List</span>
               </ReactTooltip>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="data-table-class">
-          <table id="bootstrapDataTable" class="table-wrapper table">
+          <table id="bootstrapDataTable" class="table">
             <thead>
               <tr className="data-table-head">
                 {this.state.columns.map((column, index) => {
@@ -258,10 +262,11 @@ class RolesDataTable extends Component {
                 {data.slice(0, this.state.pageSize).map((dataItem, index) => {
                   return (
                     <tr className="data-table-body-row">
+                      <td>{dataItem.roleNumber} </td>
                       <td>{dataItem.name} </td>
                       <td>{dataItem.description}</td>
 
-                      <td style={{ width: "120px" }}>
+                      <td>
                         <Link
                           data-tip
                           data-for="viewRole"
@@ -280,6 +285,26 @@ class RolesDataTable extends Component {
                           <span>View Role</span>
                         </ReactTooltip>
                       </td>
+
+                      <td>
+                        <Link
+                          data-tip
+                          data-for="editRole"
+                          className="editicon"
+                          to={{
+                            pathname: "/rolespermissions/updaterole",
+                            state: {
+                              role: dataItem.name,
+                              description: dataItem.description,
+                            },
+                          }}
+                        >
+                          <Edit />
+                        </Link>
+                        <ReactTooltip id="editRole" type="info" effect="solid">
+                          <span>Update Role</span>
+                        </ReactTooltip>
+                      </td>
                     </tr>
                   );
                 })}
@@ -287,7 +312,7 @@ class RolesDataTable extends Component {
             ) : null}
           </table>
           <tfooter>
-            <nav className="d-flex flex-end justify-content-between">
+            <nav className="d-flex flex-end align-items-center justify-content-between">
               <div className="m-0">
                 <span className="me-2 table-dropdown-pagesize-text">
                   Display
@@ -406,8 +431,21 @@ class RolesDataTable extends Component {
 }
 
 function mapStateToProps(state) {
+  let rolesList = [];
+  function createData(roleNumber, name, description) {
+    return { roleNumber, name, description };
+  }
+
+  for (let x = 0; x < state.userRolesAndPermissions.roles.length; x++) {
+    rolesList[x] = createData(
+      x + 1,
+      state.userRolesAndPermissions.roles[x].name,
+      state.userRolesAndPermissions.roles[x].description
+    );
+  }
+
   return {
-    roles: state.userRolesAndPermissions.roles,
+    roles: rolesList,
     message: state.userRolesAndPermissions.message,
   };
 }

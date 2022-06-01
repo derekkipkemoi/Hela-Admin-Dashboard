@@ -272,19 +272,19 @@ class StaffDataTable extends Component {
   render() {
     return (
       <div className="card-datatable">
-        <div className="d-flex justify-content-between mt-2 mb-3">
+        <div className="col-md-4">
+          <div className="actions-search-datatables">
+            <Search className="ms-2" />
+            <input
+              type="text"
+              className="input-section form-control shadow-none"
+              onChange={this.onSearch}
+              placeholder="Search"
+            />
+          </div>
+        </div>
+        <div className="d-flex justify-content-between">
           <div className="d-flex">
-            <div className="col-md-3">
-              <div className="actions-search-datatables">
-                <Search className="ms-2" />
-                <input
-                  type="text"
-                  className="input-section form-control shadow-none"
-                  onChange={this.onSearch}
-                  placeholder="Search"
-                />
-              </div>
-            </div>
             <div className="col-md-12">
               <button
                 className="button-all"
@@ -373,234 +373,243 @@ class StaffDataTable extends Component {
           </div>
         </div>
         <div className="data-table-class">
-        <table id="bootstrapDataTable" className="table-wrapper table">
-          <thead>
-            <tr className="data-table-head">
-              {this.state.columns.map((column, index) => {
-                return <th key={column.name}>{column.name}</th>;
-              })}
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data
-              .slice(0, this.state.pageSize)
-              .map((dataItem, index) => {
-                return (
-                  <tr className="data-table-body-row" key={dataItem.nationalId}>
-                    <td>{dataItem.name} </td>
-                    <td>{dataItem.phone}</td>
-                    <td>{dataItem.nationalId}</td>
-                    {/* <td>{dataItem.payrollNumber}</td> */}
-                    <td>{dataItem.loanBalance}</td>
-                    <td>{dataItem.advanceBalance}</td>
-                    <td>{dataItem.company}</td>
-                    <td>{dataItem.grossSalary}</td>
-                    <td>{dataItem.netSalary}</td>
-                    <td>{dataItem.createdAt.toDateString()}</td>
-                    <td
-                      className={
-                        dataItem.userStatus === "Active"
-                          ? "user-table-status-active"
-                          : null || dataItem.userStatus === "Declined"
-                          ? "user-table-status-declined"
-                          : null || dataItem.userStatus === "Pending"
-                          ? "user-table-status-pending"
-                          : null || dataItem.userStatus === "Locked"
-                          ? "user-table-status-locked"
-                          : null
-                      }
+          <table id="bootstrapDataTable" className="table-wrapper table">
+            <thead>
+              <tr className="data-table-head">
+                {this.state.columns.map((column, index) => {
+                  return <th key={column.name}>{column.name}</th>;
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data
+                .slice(0, this.state.pageSize)
+                .map((dataItem, index) => {
+                  return (
+                    <tr
+                      className="data-table-body-row"
+                      key={dataItem.nationalId}
                     >
-                      {dataItem.userStatus}
-                    </td>
-
-                    <td style={{ width: "170px" }}>
-                      <Link
-                        data-tip
-                        data-for="viewUser"
-                        className="visibilityicon"
-                        to={"staff/viewstaff"}
+                      <td>{dataItem.name} </td>
+                      <td>{dataItem.phone}</td>
+                      <td>{dataItem.nationalId}</td>
+                      {/* <td>{dataItem.payrollNumber}</td> */}
+                      <td>{dataItem.loanBalance}</td>
+                      <td>{dataItem.advanceBalance}</td>
+                      <td>{dataItem.company}</td>
+                      <td>{dataItem.grossSalary}</td>
+                      <td>{dataItem.netSalary}</td>
+                      <td>{dataItem.createdAt.toDateString()}</td>
+                      <td
+                        className={
+                          dataItem.userStatus === "Active"
+                            ? "user-table-status-active"
+                            : null || dataItem.userStatus === "Declined"
+                            ? "user-table-status-declined"
+                            : null || dataItem.userStatus === "Pending"
+                            ? "user-table-status-pending"
+                            : null || dataItem.userStatus === "Locked"
+                            ? "user-table-status-locked"
+                            : null
+                        }
                       >
-                        <Visibility />
-                        <ReactTooltip id="viewUser" type="info" effect="solid">
-                          <span>View Staff</span>
+                        {dataItem.userStatus}
+                      </td>
+
+                      <td style={{ width: "170px" }}>
+                        <Link
+                          data-tip
+                          data-for="viewUser"
+                          className="visibilityicon"
+                          to={"staff/viewstaff"}
+                        >
+                          <Visibility />
+                          <ReactTooltip
+                            id="viewUser"
+                            type="info"
+                            effect="solid"
+                          >
+                            <span>View Staff</span>
+                          </ReactTooltip>
+                        </Link>
+
+                        {dataItem.userStatus === "Active" ? null : (
+                          <span>
+                            <span
+                              data-tip
+                              data-for="approveUser"
+                              className="approveicon"
+                              data-bs-toggle="modal"
+                              data-bs-target="#approveUserModal"
+                              onClick={(e) => this.getDataItemId(index)}
+                            >
+                              <DoneOutline />
+                            </span>
+                            <ReactTooltip
+                              id="approveUser"
+                              type="success"
+                              effect="solid"
+                            >
+                              <span>Approve Staff</span>
+                            </ReactTooltip>
+                          </span>
+                        )}
+                        <Link
+                          data-tip
+                          data-for="editPermission"
+                          className="editicon"
+                          to={"staff/viewstaff"}
+                        >
+                          <Edit />
+                        </Link>
+                        <ReactTooltip
+                          id="editPermission"
+                          type="info"
+                          effect="solid"
+                        >
+                          <span>Edit Staff</span>
                         </ReactTooltip>
-                      </Link>
 
-                      {dataItem.userStatus === "Active" ? null : (
-                        <span>
-                          <span
-                            data-tip
-                            data-for="approveUser"
-                            className="approveicon"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveUserModal"
-                            onClick={(e) => this.getDataItemId(index)}
-                          >
-                            <DoneOutline />
+                        {dataItem.userStatus === "Declined" ? null : (
+                          <span>
+                            <span
+                              data-tip
+                              data-for="deletePermission"
+                              data-bs-toggle="modal"
+                              data-bs-target="#declineUserModal"
+                              className="deleteicon"
+                              onClick={(e) => this.getDataItemId(index)}
+                            >
+                              <ThumbDownAlt />
+                            </span>
+                            <ReactTooltip
+                              id="deletePermission"
+                              type="error"
+                              effect="solid"
+                            >
+                              <span>Decline Staff</span>
+                            </ReactTooltip>
                           </span>
-                          <ReactTooltip
-                            id="approveUser"
-                            type="success"
-                            effect="solid"
-                          >
-                            <span>Approve Staff</span>
-                          </ReactTooltip>
-                        </span>
-                      )}
-                      <Link
-                        data-tip
-                        data-for="editPermission"
-                        className="editicon"
-                        to={"staff/viewstaff"}
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+          <tfooter>
+            <nav className="d-flex flex-end justify-content-between">
+              <div className="m-0">
+                <span className="me-2 table-dropdown-pagesize-text">
+                  Display
+                </span>
+                <div className="btn-group">
+                  <button
+                    className="table-dropdown-pagesize-button  dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {this.state.pageSize}
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(5);
+                        }}
                       >
-                        <Edit />
-                      </Link>
-                      <ReactTooltip
-                        id="editPermission"
-                        type="info"
-                        effect="solid"
+                        5
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(10);
+                        }}
                       >
-                        <span>Edit Staff</span>
-                      </ReactTooltip>
+                        10
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(25);
+                        }}
+                      >
+                        25
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize(50);
+                        }}
+                      >
+                        50
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={(e) => {
+                          this.changePageSize("all");
+                        }}
+                      >
+                        All
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="datatable-footer-data">
+                Showing {this.state.initialItemInPage} -{" "}
+                {this.state.totalSizeInPage > dataData.length
+                  ? dataData.length
+                  : this.state.totalSizeInPage}{" "}
+                of {dataData.length}
+              </div>
+              <div>
+                <ul className="pagination d-flex m-0">
+                  <span>
+                    <SkipPrevious
+                      className="pagination-items-periphery"
+                      onClick={(e) => this.changePage(1)}
+                    />
+                  </span>
+                  <span>
+                    <NavigateBefore
+                      className="pagination-increment"
+                      onClick={(e) => this.decrementPage(e)}
+                    />
+                  </span>
 
-                      {dataItem.userStatus === "Declined" ? null : (
-                        <span>
-                          <span
-                            data-tip
-                            data-for="deletePermission"
-                            data-bs-toggle="modal"
-                            data-bs-target="#declineUserModal"
-                            className="deleteicon"
-                            onClick={(e) => this.getDataItemId(index)}
-                          >
-                            <ThumbDownAlt />
-                          </span>
-                          <ReactTooltip
-                            id="deletePermission"
-                            type="error"
-                            effect="solid"
-                          >
-                            <span>Decline Staff</span>
-                          </ReactTooltip>
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-        <tfooter>
-          <nav className="d-flex flex-end justify-content-between">
-            <div className="m-0">
-              <span className="me-2 table-dropdown-pagesize-text">Display</span>
-              <div className="btn-group">
-                <button
-                  className="table-dropdown-pagesize-button  dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {this.state.pageSize}
-                </button>
-                <ul class="dropdown-menu">
                   <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(5);
-                      }}
-                    >
-                      5
-                    </a>
+                    <p className="page-link current-page-selected">
+                      {this.state.selectedPage}
+                    </p>
                   </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(10);
-                      }}
-                    >
-                      10
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(25);
-                      }}
-                    >
-                      25
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize(50);
-                      }}
-                    >
-                      50
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      onClick={(e) => {
-                        this.changePageSize("all");
-                      }}
-                    >
-                      All
-                    </a>
-                  </li>
+
+                  <span>
+                    <NavigateNext
+                      className="pagination-increment"
+                      onClick={(e) => this.incrementPage(e)}
+                    />
+                  </span>
+
+                  <span>
+                    <SkipNext
+                      className="pagination-items-periphery"
+                      onClick={(e) => this.changePage(this.state.pageCount)}
+                    />
+                  </span>
                 </ul>
               </div>
-            </div>
-            <div className="datatable-footer-data">
-              Showing {this.state.initialItemInPage} -{" "}
-              {this.state.totalSizeInPage > dataData.length
-                ? dataData.length
-                : this.state.totalSizeInPage}{" "}
-              of {dataData.length}
-            </div>
-            <div>
-              <ul className="pagination d-flex m-0">
-                <span>
-                  <SkipPrevious
-                    className="pagination-items-periphery"
-                    onClick={(e) => this.changePage(1)}
-                  />
-                </span>
-                <span>
-                  <NavigateBefore
-                    className="pagination-increment"
-                    onClick={(e) => this.decrementPage(e)}
-                  />
-                </span>
-
-                <li>
-                  <p className="page-link current-page-selected">
-                    {this.state.selectedPage}
-                  </p>
-                </li>
-
-                <span>
-                  <NavigateNext
-                    className="pagination-increment"
-                    onClick={(e) => this.incrementPage(e)}
-                  />
-                </span>
-
-                <span>
-                  <SkipNext
-                    className="pagination-items-periphery"
-                    onClick={(e) => this.changePage(this.state.pageCount)}
-                  />
-                </span>
-              </ul>
-            </div>
-          </nav>
-        </tfooter>
+            </nav>
+          </tfooter>
         </div>
 
         {/* role-modal */}

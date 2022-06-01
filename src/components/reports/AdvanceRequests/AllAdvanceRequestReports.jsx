@@ -58,7 +58,7 @@ class AllAdvanceRequestsReports extends Component {
     }
   };
 
-  handleCompaniesChange = (selectedCompanyOptionValue ) => {
+  handleCompaniesChange = (selectedCompanyOptionValue) => {
     this.setState({ selectedCompanyOptionValue });
   };
 
@@ -72,7 +72,7 @@ class AllAdvanceRequestsReports extends Component {
     };
     return (
       <div>
-        <div className="fw-bold">Reports</div>
+        {/* <div className="fw-bold">Reports</div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">Advance Request Report</div>
@@ -85,6 +85,24 @@ class AllAdvanceRequestsReports extends Component {
               Back
             </Link>
           </div>
+        </div> */}
+
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Advance Requests</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/advancerequests"}>Advance Requests</Link>
+              </div>
+
+              <li class="breadcrumb-item " aria-current="page">
+              Advance Request Report
+              </li>
+            </ol>
+          </nav>
         </div>
         <div className="all-advance-requests-holder">
           <div className="row">
@@ -109,9 +127,9 @@ class AllAdvanceRequestsReports extends Component {
               />
             </div>
             <div className="col col-sm-12 col-md-6 col-xl-4 col-xxl-3">
-            <span>Date Preset</span>
+              <span>Date Preset</span>
               <div className="reports-date-picker">
-              <div
+                <div
                   className="dropdown-toggle"
                   type="button"
                   id="dropdownPickDateRange"
@@ -156,9 +174,7 @@ class AllAdvanceRequestsReports extends Component {
               </div>
             </div>
             <div className="col col-sm-12 col-md-3 col-xl-3 col-xxl-3">
-              <div className="all-reports-query-button mt-4">
-              Smart Query
-              </div>
+              <div className="all-reports-query-button mt-4">Smart Query</div>
             </div>
           </div>
 

@@ -1,6 +1,8 @@
 .messages-holder {
   display: flex;
   flex-direction: row;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
 }
 
 .card-messages-nav {

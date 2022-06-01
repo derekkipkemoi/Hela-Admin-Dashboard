@@ -68,6 +68,12 @@ ReactDOM.render(
           component={AuthGuard(Dashboard)}
         />
 
+        <Route
+          exact
+          path="/rolespermissions/updaterole"
+          component={AuthGuard(Dashboard)}
+        />
+
         <Route exact path="/users" component={AuthGuard(Dashboard)} />
         <Route exact path="/users/adduser" component={AuthGuard(Dashboard)} />
         <Route exact path="/users/viewuser" component={AuthGuard(Dashboard)} />
@@ -180,6 +186,12 @@ ReactDOM.render(
         <Route
           exact
           path="/advancerequests/disbursmenterror"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route
+          exact
+          path="/advancerequests/topups"
           component={AuthGuard(Dashboard)}
         />
 
@@ -345,6 +357,80 @@ ReactDOM.render(
         <Route
           exact
           path="/share&reward/processedrewards"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route exact path="/mobiloans" component={AuthGuard(Dashboard)} />
+
+        <Route
+          exact
+          path="/mobiloans/generalreports"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route
+          exact
+          path="/mobiloans/activeloans"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route
+          exact
+          path="/mobiloans/overdueloans"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/mobiloans/loandefaulters"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/mobiloans/repaidloans"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route exact path="/loanrequests" component={AuthGuard(Dashboard)} />
+        <Route
+          exact
+          path="/loanrequests/allloanrequests"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route exact path="/salary" component={AuthGuard(Dashboard)} />
+        <Route
+          exact
+          path="/salary/salaryupdate"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salary/salaryadvances"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salary/salaryadvancesearch"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route exact path="/datasheets" component={AuthGuard(Dashboard)} />
+        <Route
+          exact
+          path="/datasheets/datasheetsdata"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route exact path="/agencies" component={AuthGuard(Dashboard)} />
+        <Route exact path="/companies" component={AuthGuard(Dashboard)} />
+        <Route
+          exact
+          path="/companies/newcompany"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route exact path="/reminders" component={AuthGuard(Dashboard)} />
+        <Route
+          exact
+          path="/reminders/newreminder"
           component={AuthGuard(Dashboard)}
         />
       </App>

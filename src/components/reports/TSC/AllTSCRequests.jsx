@@ -80,7 +80,76 @@ class AllTSCRequests extends Component {
     };
     return (
       <div>
-        <div className="fw-bold">Reports</div>
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Reports</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/tscrequests"}>TSC Requests</Link>
+              </div>
+
+              <li class="breadcrumb-item " aria-current="page">
+              {this.props.location.pathname ===
+              "/advancerequests/alltscrequests" ? (
+                <span>All TSC Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/pendingtscrequests" ? (
+                <span>Pending Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/paysliprequiredtsc" ? (
+                <span>Payslip Required TSC Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/payslipsharedtsc" ? (
+                <span>Payslip Shared TSC Requests</span>
+              ) : null}
+              {this.props.location.pathname === "/advancerequests/topuptsc" ? (
+                 <span>Top Ups TSC Requests</span>
+              ) : null}
+              {this.props.location.pathname === "/advancerequests/bookedtsc" ? (
+                 <span>Booked TSC Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/duedeligencetsc" ? (
+                <span>Due Diligence Advance Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/declinedfromrequeststsc" ? (
+                <span>Declined From Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/complianceadvancerequests" ? (
+                <span>Compliance Advance Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/pendingdisbursmenttsc" ? (
+                <span>Pending Disbursement TSC Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/approvedtscrequests" ? (
+                <span> Approved TSC Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/tscpendingdeclinedrequests" ? (
+                <span>TSC Pending Decline Advance Requests</span>
+              ) : null}
+              {this.props.location.pathname ===
+              "/advancerequests/declinedrequeststsc" ? (
+                <span> Declined Requests</span>
+              ) : null}
+              {this.props.location.pathname === "/advancerequests/tscsearch" ? (
+                 <span>TSC Search Requests</span>
+              ) : null}
+              </li>
+            </ol>
+          </nav>
+        </div>
+        
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">
@@ -138,14 +207,7 @@ class AllTSCRequests extends Component {
                  <span>TSC Search Requests</span>
               ) : null}
             </div>
-            <Link
-              type="button"
-              class="btn action-button"
-              to={"/tscrequests"}
-            >
-              <ArrowBack />
-              Back
-            </Link>
+          
           </div>
         </div>
         <div className="all-advance-requests-holder">

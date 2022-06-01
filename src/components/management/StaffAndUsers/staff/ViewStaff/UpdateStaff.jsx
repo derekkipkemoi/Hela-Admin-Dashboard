@@ -30,18 +30,33 @@ class UpdateStaff extends Component {
   render() {
     return (
       <div className="row add-section">
-        <div className="fw-bold">Management</div>
+        <div className="d-flex justify-content-between">
+          <div className="fw-bold">Management</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/staff"}>Staff</Link>
+              </div>
+              <li class="breadcrumb-item " aria-current="page">
+                Update Staff
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">Update Staff</div>
-            <Link
+            {/* <Link
               type="button"
               class="btn action-button"
               to={"/staff/viewstaff"}
             >
               <ArrowBack />
               Back
-            </Link>
+            </Link> */}
           </div>
         </div>
 
@@ -105,7 +120,7 @@ class UpdateStaff extends Component {
               <div class="col-sm-12 col-md-4 col-xl-4 mb-3">
                 <label class="form-label">Status </label>
                 <div className="d-flex justify-content-start">
-                  <div className="single-radio-checkbox p-2">
+                  <div className="p-2">
                     <input
                       class="form-check-input"
                       type="radio"
@@ -117,7 +132,7 @@ class UpdateStaff extends Component {
                     />
                     <label class="form-check-label">Pending</label>
                   </div>
-                  <div class="company-radio-checkbox p-2">
+                  <div class="p-2">
                     <input
                       class="form-check-input"
                       type="radio"
@@ -129,7 +144,7 @@ class UpdateStaff extends Component {
                     />
                     <label class="form-check-label">Declined</label>
                   </div>
-                  <div class="company-radio-checkbox p-2">
+                  <div class="p-2">
                     <input
                       class="form-check-input"
                       type="radio"

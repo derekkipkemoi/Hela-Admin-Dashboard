@@ -11,7 +11,7 @@ class UncapturedDisbursment extends Component {
   render() {
     return (
       <div>
-        <div className="fw-bold">Reports</div>
+        {/* <div className="fw-bold">Reports</div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">
@@ -26,6 +26,23 @@ class UncapturedDisbursment extends Component {
               Back
             </Link>
           </div>
+        </div> */}
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Advance Requests</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/advancerequests"}>Advance Requests</Link>
+              </div>
+
+              <li class="breadcrumb-item " aria-current="page">
+              Uncaptured Disbursment
+              </li>
+            </ol>
+          </nav>
         </div>
         <div className="all-advance-requests-holder">
           <UncapturedDisbursmentDataTables />

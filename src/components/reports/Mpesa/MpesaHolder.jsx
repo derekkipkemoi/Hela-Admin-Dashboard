@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link as Linking} from "react-router-dom"
 import "../AdvanceRequests/advancerequests.css";
 import { withRouter } from "react-router-dom";
 import { ArrowUpward, Link } from "@mui/icons-material";
@@ -32,8 +33,16 @@ class MpesaHolder extends Component {
 
     return (
       <div className="advance-requests-holder">
-        <div>
-          <div className="header-reports-holder">M-PESA</div>
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Reports</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Linking to={"/"}>Home</Linking>
+              </div>
+              <div class="breadcrumb-item">M-PESA</div>
+            </ol>
+          </nav>
         </div>
         <div className="row">
           <div className="col-sm-12 col-md-4 col-xl-3 col-xxl-3 mb-3">

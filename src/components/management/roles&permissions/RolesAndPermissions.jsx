@@ -1,6 +1,5 @@
 import { Add, Refresh, Search } from "@mui/icons-material";
 import React, { Component } from "react";
-
 import "../management.css";
 import AddPermissionModal from "./AddPermissionModal";
 import RolesDataTable from "../../dataTables/RolesDataTable";
@@ -29,30 +28,33 @@ class RolesAndPermissions extends Component {
   render() {
     return (
       <div className="row management-section">
-        <div className="fw-bold">Management</div>
+        <div className="d-flex justify-content-between">
+          <div className="fw-bold">Management</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <li class="breadcrumb-item " aria-current="page">
+                Roles And Permissions
+              </li>
+            </ol>
+          </nav>
+        </div>
+
         <div className="col action-section">
           <div className="actions-name">
             {this.state.showRoles ? "Roles" : "Permissions"}
           </div>
 
-          {/* <div className="actions-search">
-            <Search className="ms-2" />
-            <input
-              type="text"
-              className="input-section form-control shadow-none"
-              onChange={this.onSearchMessages}
-              placeholder="Search"
-            />
-          </div> */}
-
           {this.state.showRoles ? (
             <Link
               type="button"
-              class="btn action-button"
+              class="action-button"
               to={"rolespermissions/addrole"}
             >
               <Add />
-              Role
+              Roles
             </Link>
           ) : null}
         </div>

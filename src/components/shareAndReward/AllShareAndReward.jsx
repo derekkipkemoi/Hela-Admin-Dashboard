@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import DisbursedRewardsDataTables from "./shareAndRewardDataTables/DisburseRewardsDataTables";
 import ProcessedRewardsDataTables from "./shareAndRewardDataTables/ProcessedRewardsDataTables";
 import PromotionsUserReferalsDataTables from "./shareAndRewardDataTables/PromotionUserReferralsDataTables";
 import RedeemRequestsDataTables from "./shareAndRewardDataTables/RedeemRequestsDataTables";
-
 
 class AllShareAndReward extends Component {
   state = {
@@ -65,7 +64,38 @@ class AllShareAndReward extends Component {
     };
     return (
       <div>
-        <div className="fw-bold">Share And Rewards</div>
+        <div className="d-flex justify-content-between">
+          <div className="header-reports-holder">Reports</div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <div class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div class="breadcrumb-item">
+                <Link to={"/m_pesa"}>Share And Rewards</Link>
+              </div>
+
+              <li class="breadcrumb-item " aria-current="page">
+                {this.props.location.pathname ===
+                "/share&reward/userrefferals" ? (
+                  <span>Promotion User Referrals</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/share&reward/redeemrequests" ? (
+                  <span>Redeem Requests</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/share&reward/pendingdisbursement" ? (
+                  <span>Pending Disbursement</span>
+                ) : null}
+                {this.props.location.pathname ===
+                "/share&reward/processedrewards" ? (
+                  <span>Processed Rewards</span>
+                ) : null}
+              </li>
+            </ol>
+          </nav>
+        </div>
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">
@@ -94,21 +124,19 @@ class AllShareAndReward extends Component {
         </div>
         <div className="all-advance-requests-holder">
           <div>
-            {this.props.location.pathname ===
-            "/share&reward/userrefferals" ? (
-              <PromotionsUserReferalsDataTables/>
+            {this.props.location.pathname === "/share&reward/userrefferals" ? (
+              <PromotionsUserReferalsDataTables />
             ) : null}
-            {this.props.location.pathname ===
-            "/share&reward/redeemrequests" ? (
-              <RedeemRequestsDataTables/>
+            {this.props.location.pathname === "/share&reward/redeemrequests" ? (
+              <RedeemRequestsDataTables />
             ) : null}
             {this.props.location.pathname ===
             "/share&reward/pendingdisbursement" ? (
-              <DisbursedRewardsDataTables/>
+              <DisbursedRewardsDataTables />
             ) : null}
             {this.props.location.pathname ===
             "/share&reward/processedrewards" ? (
-              <ProcessedRewardsDataTables/>
+              <ProcessedRewardsDataTables />
             ) : null}
           </div>
         </div>

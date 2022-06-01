@@ -75,6 +75,33 @@
     { "value":2,"label": "Self Employed" }
     ],
 
+    "state": [
+        { "value":1,"label": "Active" },
+    { "value":2,"label": "Suspended" }
+    ],
+
+    "remindersStatus": [
+        { "value":1,"label": "Active" },
+    { "value":2,"label": "Inactive" }
+    ],
+
+    "remindersType": [
+        { "value":1,"label": "Mobile" },
+    { "value":2,"label": "General Advances" },
+    { "value":3,"label": "TSC Advances" },
+    { "value":4,"label": "Company" }
+    ],
+
+
+    "staff": [
+        { "value":1,"label": "Teachers Service Commission" },
+    { "value":2,"label": "Forces/Police" },
+    { "value":3,"label": "Civil Servants" },
+    { "value":4,"label": "County Staff" },
+    { "value":5,"label": "Parastatals" },
+    { "value":6,"label": "Private Companies" }
+    ],
+
     "status": [
         { "value":0,"label" : "Pending"  },
         { "value":1,"label" : "Disbursed"  },
@@ -128,5 +155,13 @@
 {  "value":22,"label": "22 Months" },
 {  "value":23,"label": "23 Months" },
 {  "value":24,"label": "24 Months" }
+    ],
+
+    "LoansCriteria": [
+{  "value":2,"label": "Loans and Interest" },
+{  "value":3,"label": "Loans" },
+{  "value":4,"label": "interest" },
+{  "value":5,"label": "Loan Repayment" },
+{  "value":5,"label": "Rollovers" }
     ]
     }

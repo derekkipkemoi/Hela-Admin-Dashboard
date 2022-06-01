@@ -272,9 +272,7 @@ class UsersDataTable extends Component {
   render() {
     return (
       <div className="card-datatable">
-        <div className="d-flex justify-content-between mt-2 mb-3">
-          <div className="d-flex">
-            <div className="col-md-3">
+        <div className="col-md-4">
               <div className="actions-search-datatables">
                 <Search className="ms-2" />
                 <input
@@ -285,6 +283,9 @@ class UsersDataTable extends Component {
                 />
               </div>
             </div>
+        <div className="d-flex justify-content-between">
+          <div className="d-flex">
+            
             <div className="col-md-12">
               <button
                 className="button-all"

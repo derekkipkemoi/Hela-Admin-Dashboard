@@ -6,8 +6,7 @@
 }
 
 .add-section {
-  margin-top: 80px;
-  margin-right: 20px;
+  margin: 0px 5px 20px 5px;
 }
 
 .add-action {
@@ -20,18 +19,22 @@
   margin: 0px 20px 0px 0px;
 }
 
-.add-action .action-button {
+.action-button {
   background-color: var(--yellow-color);
+  padding: 5px 20px 5px 20px;
   color: var(--white-color);
   border: 1px solid var(--yellow-color);
   border-radius: 20px;
+  margin-left: 20px;
 }
 
-.add-action .action-button:hover {
+.action-button:hover {
   background-color: var(--main-background-color);
+  padding: 5px 20px 5px 20px;
   color: var(--yellow-color);
   border: 1px solid var(--yellow-color);
   border-radius: 20px;
+  margin-left: 20px;
 }
 
 .btn-tab {
@@ -92,7 +95,6 @@
   flex-direction: row;
   align-items: center;
   border-radius: 2px;
-  padding: 10px;
 }
 
 .refresh-management-button {
@@ -124,23 +126,6 @@
   border: none;
 }
 
-.action-section .action-button {
-  background-color: var(--yellow-color);
-  border: 1px solid var(--yellow-color);
-  display: flex;
-  color: #fff;
-  margin-left: 20px;
-  border-radius: 20px;
-}
-
-.action-section .action-button:hover {
-  background-color: var(--yellow-color);
-  border: 1px solid var(--yellow-color);
-  display: flex;
-  color: #fff;
-  margin-left: 20px;
-  border-radius: 20px;
-}
 
 .action-title-modal {
   background-color: #f82952;
@@ -225,12 +210,15 @@
 }
 
 .permission-header {
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px 5px 0px;
   border-radius: 5px 5px 0px 0px;
+  font-size: large;
+  font-weight: 600;
 }
 
 .permission-description {
-  background-color: var(--approve-color);
-  color: var(--white-color);
+  color: var(--grey-color);
   border-radius: 5px;
+  margin: 0px 0px 0px 5px;
+  /* text-align: center; */
 }
