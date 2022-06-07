@@ -11,6 +11,7 @@ import {
   NotificationsNone,
   ManageAccounts,
   Search,
+  Calculate,
 } from "@mui/icons-material";
 
 class Topbar extends Component {
@@ -45,7 +46,6 @@ class Topbar extends Component {
       const newElement = document.getElementById(menuItem);
       newElement.classList.remove("nav-link-item");
     }
-
   };
 
   logOut = () => {
@@ -82,9 +82,12 @@ class Topbar extends Component {
           </div>
         </div>
 
-        <div className="header-icons">
-          <NotificationsNone />
+        <div className="d-flex">
+          <div className="header-icons">
+            <NotificationsNone />
+          </div>
         </div>
+
         <div class="header_img" onClick={this.UserImageClicked}>
           <img src={require("../assets/images/userprofile.png")} alt="" />
         </div>

@@ -163,5 +163,12 @@
 {  "value":4,"label": "interest" },
 {  "value":5,"label": "Loan Repayment" },
 {  "value":5,"label": "Rollovers" }
-    ]
+    ],
+    "AdvanceReportsCriteria": [
+        {  "value":2,"label": "Salary Advance and Interest" },
+        {  "value":3,"label": "Salary Advance" },
+        {  "value":4,"label": "Salary Advance interest" },
+        {  "value":5,"label": "Salary Advance Repayment" },
+        {  "value":5,"label": "Salary Advance Rollovers" }
+            ]
     }

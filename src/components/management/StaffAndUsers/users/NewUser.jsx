@@ -42,14 +42,7 @@ class NewUser extends Component {
         <div className="col d-flex">
           <div className="add-action">
             <div className="actions-name">Add New User</div>
-            {/* <Link
-              type="button"
-              class="btn action-button"
-              to={"/users"}
-            >
-              <ArrowBack />
-              Back
-            </Link> */}
+            
           </div>
         </div>
 

@@ -15,6 +15,8 @@ import {
   Forum,
   AlignVerticalTop,
   KeyboardArrowRight,
+  Settings,
+  Calculate,
 } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
@@ -39,6 +41,10 @@ const navLinks = [
       {
         linkName: "Advance Requests",
         to: "/advancerequests",
+      },
+      {
+        linkName: "Advance Reports",
+        to: "/salaryadvancereports",
       },
 
       {
@@ -172,6 +178,17 @@ const navLinks = [
     linkIcon: <NotificationsNone style={{ fontSize: 23 }} />,
     subLink: [],
   },
+  {
+    linkName: "Settings",
+    to: "/systemsettings",
+    linkIcon: <Settings style={{ fontSize: 23 }} />,
+    subLink: [],
+  },
+  {
+    linkName: "Calculator",
+    linkIcon: <Calculate style={{ fontSize: 23 }} />,
+    subLink: [],
+  },
   // {
   //   linkName: "Top Ups",
   //   to: "/topups",
@@ -293,7 +310,8 @@ class SideBar extends Component {
                           to={
                             nav.linkName === "Home" ||
                             nav.linkName === "Messages" ||
-                            nav.linkName === "Reminders"
+                            nav.linkName === "Reminders" ||
+                            nav.linkName === "Settings"
                               ? nav.to
                               : null
                           }
@@ -302,10 +320,12 @@ class SideBar extends Component {
                           onClick={
                             nav.linkName === "Home" ||
                             nav.linkName === "Messages" ||
-                            nav.linkName === "Reminders"
+                            nav.linkName === "Reminders" ||
+                            nav.linkName === "Settings"
                               ? (e) => this.navItemHomeClicked(index)
                               : (e) => this.navItemClicked(index)
                           }
+                          
                         >
                           {!this.props.NavBarExpanded ? (
                             <HtmlTooltip

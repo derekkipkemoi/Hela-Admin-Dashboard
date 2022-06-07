@@ -1,7 +1,7 @@
 .card-profile {
   height: var(--header-height);
   position: absolute;
-  top: calc(var(--header-height) + 0.1rem);
+  top: calc(var(--header-height));
   right: -18rem;
   margin: 0 1rem;
   transition: 0.8s;
@@ -10,7 +10,7 @@
 .card-profile-removed {
   position: absolute;
   right: 0;
-  top: calc(var(--header-height) + 0.1rem);
+  top: calc(var(--header-height));
   margin: 0 1rem;
   transition: 0.8s;
 }
@@ -37,7 +37,7 @@
   background-color: var(--white-color);
   z-index: var(--z-fixed);
   transition: 0.5s;
-  box-shadow: 0.15 .15rem .15rem .15rem;
+  box-shadow: 0.15 0.15rem 0.15rem 0.15rem;
 }
 
 .header_toggle {
@@ -62,11 +62,11 @@
   width: 40px;
 }
 
-.header-link{
+.header-link {
   cursor: pointer;
 }
 
-.top-bar-search{
+.top-bar-search {
   margin-left: 50px;
 }
 
@@ -81,7 +81,7 @@
   .card-profile-removed {
     position: absolute;
     right: 0;
-    top: calc(var(--header-height) + 1.1rem);
+    top: calc(var(--header-height));
     margin: 0 1rem;
     transition: 0.8s;
   }
@@ -110,6 +110,6 @@
   .header {
     height: calc(var(--header-height));
     padding: 0 2rem 0 0;
-    border: 0px 0px 2px 0px  solid #dee2e6 !important;
+    border: 0px 0px 2px 0px solid #dee2e6 !important;
   }
 }

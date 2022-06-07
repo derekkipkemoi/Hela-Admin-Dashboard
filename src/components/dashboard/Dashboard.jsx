@@ -43,6 +43,10 @@ import Companies from "../Agencies&Companies/Companies";
 import NewCompany from "../Agencies&Companies/NewCompany";
 import Reminders from "../Reminders/Reminders";
 import NewReminder from "../Reminders/NewReminder";
+import AdvanceReportsHolder from "../reports/AdvanceReports/AdvanceReportsHolder";
+import AllAdvanceReports from "../reports/AdvanceReports/AllAdvanceReports";
+import SystemSettings from "../settings/SystemSettings";
+import UpdateSettings from "../settings/UpdateSettings";
 
 class Dashboard extends Component {
   state = {};
@@ -160,8 +164,7 @@ class Dashboard extends Component {
         "/advancerequests/disbursmenterror" ? (
           <AllAdvanceRequests />
         ) : null}
-        {this.props.location.pathname ===
-        "/advancerequests/topups" ? (
+        {this.props.location.pathname === "/advancerequests/topups" ? (
           <AllAdvanceRequests />
         ) : null}
         {this.props.location.pathname ===
@@ -326,9 +329,47 @@ class Dashboard extends Component {
 
         {this.props.location.pathname === "/agencies" ? <Agencies /> : null}
         {this.props.location.pathname === "/companies" ? <Companies /> : null}
-        {this.props.location.pathname === "/companies/newcompany" ? <NewCompany /> : null}
+        {this.props.location.pathname === "/companies/newcompany" ? (
+          <NewCompany />
+        ) : null}
         {this.props.location.pathname === "/reminders" ? <Reminders /> : null}
-        {this.props.location.pathname === "/reminders/newreminder" ? <NewReminder /> : null}
+        {this.props.location.pathname === "/reminders/newreminder" ? (
+          <NewReminder />
+        ) : null}
+
+        {this.props.location.pathname === "/salaryadvancereports" ? (
+          <AdvanceReportsHolder />
+        ) : null}
+        {this.props.location.pathname ===
+        "/salaryadvancereports/advancereportssalaryadvance&interest" ? (
+          <AllAdvanceReports />
+        ) : null}
+        {this.props.location.pathname ===
+        "/salaryadvancereports/advancereportsactiveadvance" ? (
+          <AllAdvanceReports />
+        ) : null}
+        {this.props.location.pathname ===
+        "/salaryadvancereports/advancereportsadvanceoverdue" ? (
+          <AllAdvanceReports />
+        ) : null}
+        {this.props.location.pathname ===
+        "/salaryadvancereports/advancereportsadvancedefaulters" ? (
+          <AllAdvanceReports />
+        ) : null}
+        {this.props.location.pathname ===
+        "/salaryadvancereports/advancereportssalaryadvancerepaid" ? (
+          <AllAdvanceReports />
+        ) : null}
+        {this.props.location.pathname ===
+        "/salaryadvancereports/advancereportscompanysummaryreports" ? (
+          <AllAdvanceReports />
+        ) : null}
+        {this.props.location.pathname === "/systemsettings" ? (
+          <SystemSettings />
+        ) : null}
+        {this.props.location.pathname === "/systemsettings/update" ? (
+          <UpdateSettings />
+        ) : null}
       </div>
     );
   }

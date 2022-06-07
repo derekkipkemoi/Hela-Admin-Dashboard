@@ -433,6 +433,45 @@ ReactDOM.render(
           path="/reminders/newreminder"
           component={AuthGuard(Dashboard)}
         />
+
+        <Route
+          exact
+          path="/salaryadvancereports"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salaryadvancereports/advancereportssalaryadvance&interest"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salaryadvancereports/advancereportsactiveadvance"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salaryadvancereports/advancereportsadvanceoverdue"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salaryadvancereports/advancereportsadvancedefaulters"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salaryadvancereports/advancereportssalaryadvancerepaid"
+          component={AuthGuard(Dashboard)}
+        />
+        <Route
+          exact
+          path="/salaryadvancereports/advancereportscompanysummaryreports"
+          component={AuthGuard(Dashboard)}
+        />
+
+        <Route exact path="/systemsettings" component={AuthGuard(Dashboard)} />
+        <Route exact path="/systemsettings/update" component={AuthGuard(Dashboard)} />
       </App>
     </BrowserRouter>
   </Provider>,
