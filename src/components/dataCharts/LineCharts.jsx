@@ -72,7 +72,7 @@ class DataCharts extends PureComponent {
               bottom: 5,
             }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray="0 0" />
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
@@ -80,10 +80,11 @@ class DataCharts extends PureComponent {
             <Line
               type="monotone"
               dataKey="pv"
-              stroke="#fba615"
+              stroke="#0acf97"
+              strokeWidth={4}
               activeDot={{ r: 8 }}
             />
-            <Line type="monotone" dataKey="uv" stroke="#7c992c" />
+            <Line type="monotone" dataKey="uv" stroke="#3e79f7" strokeWidth={4} />
           </LineChart>
         </ResponsiveContainer>
       

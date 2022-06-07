@@ -72,13 +72,13 @@ class DataBarCharts extends PureComponent {
                 bottom: 5,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="0 0" />
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="pv" fill="#fba615" />
-              <Bar dataKey="uv" fill="#7c992c" />
+              <Bar dataKey="pv" fill="#0acf97" />
+              <Bar dataKey="uv" fill="#3e79f7" />
             </BarChart>
             </ResponsiveContainer>
           
